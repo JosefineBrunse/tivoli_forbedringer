@@ -1,0 +1,11 @@
+.btnprimary {
+  padding: 0.5rem 2rem;
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-family: "neue-haas-grotesk-text", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-radius: 2rem;
+  width: fit-content;
+  height: fit-content;
+}
