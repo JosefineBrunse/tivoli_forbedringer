@@ -1,0 +1,54 @@
+.artistcard {
+  height: 300px;
+  width: 100%;
+  border: 1px solid var(--secondary);
+  display: grid;
+  grid-template-columns: 400px 4fr;
+
+  & img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-right: 1px solid var(--secondary);
+  }
+  & .artistcardinfo {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  & .shortdescription {
+    font-weight: 500;
+  }
+
+  & .time,
+  .place {
+    text-transform: uppercase;
+  }
+  & .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: bottom;
+  }
+}
+
+.tag {
+  padding: 0.4rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5rem;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  padding-top: 0.5rem;
+  background-color: rgb(255, 75, 75);
+  color: var(--primary);
+  width: fit-content;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  &.Mint {
+    background-color: #c8dec5;
+  }
+  &.Fredagsrock {
+    background-color: #ee1b5a;
+  }
+}

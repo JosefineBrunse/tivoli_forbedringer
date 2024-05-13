@@ -32,8 +32,14 @@ h2 {
   font-size: clamp(2rem, 8vw, 8rem);
   line-height: clamp(2rem, 7vw, 7rem);
 }
+h3 {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 3vw, 4rem);
+  line-height: clamp(1.5rem, 5vw, 4rem);
+}
 
-h3,
 h4,
 h5 {
   font-family: "neue-haas-grotesk-display", sans-serif;

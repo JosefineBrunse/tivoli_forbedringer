@@ -1,0 +1,69 @@
+.accordion {
+  background-color: transparent;
+  border: none;
+  border-block: 1px solid var(--secondary);
+  height: fit-content;
+
+  padding: 1rem;
+  width: 100%;
+
+  & .accheadline {
+    cursor: pointer;
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    & svg {
+      height: fit-content;
+      height: 20px;
+      width: 10px;
+      transition: 0.5s ease-in-out;
+      transform-origin: center;
+    }
+
+    & h3 {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+.accordion.active svg {
+  transform: rotate(90deg);
+}
+
+.outer {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s ease-in-out;
+}
+.accordion.active .outer {
+  grid-template-rows: 1fr;
+}
+
+.inner {
+  overflow: hidden;
+  text-align: left;
+  & p {
+    margin-top: 1rem;
+  }
+}
+
+.accodionShelf {
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accshelfheadline {
+  margin-bottom: 2rem;
+
+  & h2 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+}

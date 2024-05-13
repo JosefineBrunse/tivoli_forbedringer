@@ -1,0 +1,13 @@
+.gridtwocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: fit-content;
+
+  & .imgcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 700px;
+  }
+}
