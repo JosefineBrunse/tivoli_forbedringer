@@ -4,7 +4,7 @@ import styles from "../styles/PrimaryBtn.module.css";
 export default function SpotifyEmbed({ src }) {
   return (
     <iframe
-      src={src}
+      src={"https://open.spotify.com/embed/artist/" + src}
       width="100%"
       height="600"
       frameBorder="0"
