@@ -12,7 +12,6 @@ export default function AccordionContainer({ children }) {
   const [close, setClose] = useState();
 
   function handleAccordions() {
-    console.log("CLOSE");
     setClose(false);
   }
   return (

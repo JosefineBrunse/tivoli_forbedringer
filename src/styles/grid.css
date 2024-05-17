@@ -2,12 +2,28 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: fit-content;
+  gap: 1rem;
 
   & .imgcontainer {
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    height: 700px;
+    height: 500px;
+    position: relative;
+    & img {
+      position: absolute;
+      z-index: 2;
+      width: 400px;
+      transform: rotate(-5deg);
+      height: 400px;
+    }
+  }
+
+  @media (width<800px) {
+    display: block;
+    & .imgcontainer {
+      height: 400px;
+    }
   }
 }

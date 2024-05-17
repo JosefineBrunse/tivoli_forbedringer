@@ -26,7 +26,7 @@ export default function HeaderSliderElement(props) {
       ref={scrollRef}
       className="headersliderelement"
       style={{
-        backgroundImage: `url(https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/${props.slug}.webp)`,
+        backgroundImage: `url(https://source.unsplash.com/random/")`,
       }}
     >
       <div className={"info"}>
@@ -42,7 +42,7 @@ export default function HeaderSliderElement(props) {
           {props.headline}
         </h2>
 
-        <SecondaryBtn text={"Læs mere"} />
+        <SecondaryBtn text={"Læs mere"} link={"event/" + props.slug} />
       </div>
       <div className="headerimg"></div>
     </div>

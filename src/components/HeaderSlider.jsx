@@ -93,17 +93,21 @@ export default function HeaderSlider({ data }) {
     };
   }, [isAnimating]);
 
-  useEffect(() => {
-    const proxy = proxyRef.current;
-    const slideWidth = proxy.children[0].offsetWidth; // Get width of first child
-    const activeIndex = Math.round(-gsap.getProperty(proxy, "x") / slideWidth);
-    setActiveDotIndex(activeIndex);
-  }, [proxyRef.current]);
+  // useEffect(() => {
+  //   if (data) {
+  //     const proxy = proxyRef.current;
+  //     const slideWidth = proxy.children[0].offsetWidth; // Get width of first child
+  //     const activeIndex = Math.round(
+  //       -gsap.getProperty(proxy, "x") / slideWidth
+  //     );
+  //     setActiveDotIndex(activeIndex);
+  //   }
+  // }, [proxyRef.current]);
 
   let dots = [];
-  if (proxyRef.current) {
-    dots = Array.from(proxyRef.current.children).map((_, index) => index);
-  }
+  // if (proxyRef.current && data) {
+  //   dots = Array.from(proxyRef.current.children).map((_, index) => index);
+  // }
 
   return (
     <div className="scrollelementcontainer">
@@ -121,15 +125,17 @@ export default function HeaderSlider({ data }) {
         </svg>
       </div>
       <div className="dots">
-        {dots.map((i) => (
-          <div
-            key={i}
-            className={`dot ${activeDotIndex === i ? "active" : ""}`}
-            onClick={() => {
-              animateSlides(-1 * (i - activeDotIndex));
-            }}
-          ></div>
-        ))}
+        {dots
+          ? dots.map((i) => (
+              <div
+                key={i}
+                className={`dot ${activeDotIndex === i ? "active" : ""}`}
+                onClick={() => {
+                  animateSlides(-1 * (i - activeDotIndex));
+                }}
+              ></div>
+            ))
+          : null}
       </div>
       <section className="headerslider" ref={proxyRef}>
         {data
@@ -144,18 +150,6 @@ export default function HeaderSlider({ data }) {
               />
             ))
           : null}
-        <HeaderSliderElement
-          img={"header.png"}
-          headline={"GOBS & THOR FARLOV"}
-        />
-        <HeaderSliderElement
-          img={"header2.jpeg"}
-          headline={"BARSELONA & PIL"}
-        />
-        <HeaderSliderElement
-          img={"header3.jpeg"}
-          headline={"THOMAS DYBDAHL & BEHARIE"}
-        />
       </section>
     </div>
   );
