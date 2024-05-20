@@ -9,6 +9,7 @@ const myFont = localFont({
 
 import { konceptdata, programdata } from "@/app/data";
 const koncept = konceptdata;
+console.log(konceptdata);
 const program = programdata;
 
 export async function generateStaticParams() {
@@ -40,7 +41,11 @@ export default function page({ params }) {
         </div>
       </div>
 
-      <ProgramComponent headline={"Program"} data={program} filter={slug} />
+      <ProgramComponent
+        headline={"Program"}
+        data={program}
+        filter={dettekoncept.Filter}
+      />
     </main>
   );
 }
