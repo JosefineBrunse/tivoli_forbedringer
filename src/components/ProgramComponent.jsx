@@ -13,96 +13,48 @@ import ArtistPosterCard from "./ArtistPosterCard";
 const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
 });
-
-export default function ProgramComponent({ headline, data }) {
-  let completedata = data;
-  const [filteredData, setFilteredData] = useState(completedata);
-  const [konceptFilter, setKonceptFilter] = useState();
-  const [GenreFilter, setGenreFilter] = useState();
-  const [stemningFilter, setStemningFilter] = useState();
-  const [monthFilter, setMonthFilter] = useState();
+export default function ProgramComponent({ headline, data, filter }) {
+  const [filteredData, setFilteredData] = useState([]);
+  const [konceptFilter, setKonceptFilter] = useState(filter || null);
+  const [GenreFilter, setGenreFilter] = useState(null);
+  const [stemningFilter, setStemningFilter] = useState(null);
+  const [monthFilter, setMonthFilter] = useState(null);
   const [posterView, setPosterView] = useState(false);
   const [monthOptions, setMonthOptions] = useState([]);
 
   useEffect(() => {
-    console.log("HELO");
-
-    // Filter out events where the 'from' date has passed
     const currentDate = new Date();
-    const filteredData = data.filter(
+    const validData = data.filter(
       (event) => new Date(event.from) > currentDate
     );
 
-    // Sort filtered data by start date
-    const sortedData = filteredData.sort((a, b) => {
-      const dateA = new Date(a.from);
-      const dateB = new Date(b.from);
-      return dateA - dateB;
-    });
-
-    console.log(sortedData);
-    setFilteredData(sortedData);
-
-    // Extract unique months from filtered data
     const uniqueMonths = [
       ...new Set(
-        sortedData.map((event) => {
-          const eventDate = new Date(event.from);
-          return format(eventDate, "MMMM", { locale: da });
-        })
+        validData.map((event) =>
+          format(new Date(event.from), "MMMM", { locale: da })
+        )
       ),
     ];
 
-    // Create options array for FilterBtn
-    const monthOptions = uniqueMonths.map((month) => ({ value: month }));
+    setMonthOptions(uniqueMonths.map((month) => ({ value: month })));
 
-    setMonthOptions(monthOptions);
+    setFilteredData(validData);
   }, [data]);
 
-  function changeKonceptState(name, value) {
-    if (name === "Koncept") {
-      console.log("FILTERERERRER", value);
-
-      if (value != "all") {
-        setKonceptFilter(value);
-      } else {
-        setKonceptFilter(null);
-      }
-    }
-    if (name === "Genre") {
-      if (value != "all") {
-        console.log(value);
-        setGenreFilter(value);
-      } else {
-        setGenreFilter(null);
-      }
-    }
-    if (name === "Stemning") {
-      if (value != "all") {
-        setStemningFilter(value);
-      } else {
-        setStemningFilter(null);
-      }
-    }
-    if (name === "Month") {
-      if (value != "all") {
-        setMonthFilter(value);
-      } else {
-        setMonthFilter(null);
-      }
-    }
-  }
-
   useEffect(() => {
-    let filteredDataCopy = [...completedata];
+    let filteredDataCopy = [...data].filter(
+      (event) => new Date(event.from) > new Date()
+    );
 
     if (konceptFilter) {
+      const capitalizedKonceptFilter =
+        konceptFilter.charAt(0).toUpperCase() +
+        konceptFilter.slice(1).toLowerCase();
       filteredDataCopy = filteredDataCopy.filter((item) =>
-        item.koncept.includes(konceptFilter)
+        item.koncept.includes(capitalizedKonceptFilter)
       );
     }
     if (GenreFilter) {
-      console.log(GenreFilter);
       filteredDataCopy = filteredDataCopy.filter((item) =>
         item.genre.includes(GenreFilter)
       );
@@ -112,11 +64,31 @@ export default function ProgramComponent({ headline, data }) {
         item.Stemning.includes(stemningFilter)
       );
     }
+    if (monthFilter) {
+      filteredDataCopy = filteredDataCopy.filter(
+        (item) =>
+          format(new Date(item.from), "MMMM", { locale: da }) === monthFilter
+      );
+    }
 
     setFilteredData(filteredDataCopy);
-  }, [konceptFilter, GenreFilter, stemningFilter]);
+  }, [data, konceptFilter, GenreFilter, stemningFilter, monthFilter]);
 
-  // Group filtered data by month
+  function changeKonceptState(name, value) {
+    if (name === "Koncept") {
+      setKonceptFilter(value !== "all" ? value : null);
+    }
+    if (name === "Genre") {
+      setGenreFilter(value !== "all" ? value : null);
+    }
+    if (name === "Stemning") {
+      setStemningFilter(value !== "all" ? value : null);
+    }
+    if (name === "Month") {
+      setMonthFilter(value !== "all" ? value : null);
+    }
+  }
+
   const groupedByMonth = filteredData.reduce((acc, item) => {
     const monthYear = new Date(item.from).toLocaleString("da-DK", {
       month: "long",
@@ -133,18 +105,25 @@ export default function ProgramComponent({ headline, data }) {
         <div className="filtershelf">
           <FilterBtn
             changestate={changeKonceptState}
+            value={konceptFilter}
             name={"Koncept"}
             id={"koncept"}
             options={[
-              { value: "Fredagsrock" },
-              { value: "Mint" },
-              { value: "Lørdagsdans" },
+              { value: "fredagsrock" },
+              { value: "mint" },
+              { value: "lørdagsdans" },
+              { value: "onsdagsjazz" },
+              { value: "sommerklassik" },
+              { value: "lørdagshits" },
+              { value: "syngmedtivoli" },
+              { value: "havefest" },
             ]}
           />
           <FilterBtn
             changestate={changeKonceptState}
             name={"Genre"}
             id={"Genre"}
+            value={GenreFilter}
             options={[
               { value: "Pop" },
               { value: "Rock" },
@@ -157,6 +136,7 @@ export default function ProgramComponent({ headline, data }) {
             changestate={changeKonceptState}
             name={"Stemning"}
             id={"Stemning"}
+            value={stemningFilter}
             options={[
               { value: "Glade dage" },
               { value: "Rolige rytmer" },

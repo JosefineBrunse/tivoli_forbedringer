@@ -13,3 +13,7 @@ label:has(.filterbtn) {
   gap: 0.5rem;
   font-weight: 500;
 }
+
+select {
+  text-transform: capitalize;
+}

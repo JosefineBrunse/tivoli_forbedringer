@@ -9,6 +9,7 @@ export default function FilterBtn(props) {
     <label htmlFor={props.name}>
       {props.name}
       <select
+        value={props.value}
         defaultValue={"name"}
         onChange={(e) => {
           handleSelect(e.target.value);
