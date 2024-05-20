@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { konceptdata } from "./data";
 
 import { UserProvider } from "@/components/MyContexts";
 export const metadata = {
@@ -13,7 +14,7 @@ export default function RootLayout({ children }) {
     <UserProvider>
       <html lang="en">
         <body>
-          <Navbar />
+          <Navbar koncepter={konceptdata} />
           {children}
         </body>
       </html>

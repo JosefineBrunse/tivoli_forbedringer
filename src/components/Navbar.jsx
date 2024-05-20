@@ -3,8 +3,10 @@ import Image from "next/image";
 import styles from "../styles/navbar.css";
 import Link from "next/link";
 import { useState } from "react";
-export default function Navbar() {
+
+export default function Navbar({ koncepter }) {
   const [active, setactive] = useState(false);
+
   function handleBurgerClick() {
     setactive((old) => !old);
   }
@@ -31,15 +33,17 @@ export default function Navbar() {
                 Program
               </Link>
             </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                href="/Havefest"
-                onClick={handleBurgerClick}
-              >
-                HaveFest
-              </Link>
-            </li>
+            {koncepter.map((item) => (
+              <li className="nav-item under">
+                <Link
+                  className="nav-link"
+                  href={"/koncept/" + item.slug}
+                  onClick={handleBurgerClick}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </article>
         <div

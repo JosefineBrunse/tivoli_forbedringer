@@ -7,16 +7,16 @@ export default function KonceptCard({ imgsrc, headline, text, btnlink }) {
   return (
     <div className="konceptcard">
       <div className="imgcontainer">
+        <div className={"imgoverlay"}></div>
         <img src={imgsrc} alt="" />
       </div>
-      <div className="bottom">
+      <div className={"bottom " + headline}>
         <div>
           <h3>{headline}</h3>
           <p>{text}</p>
         </div>
-        <div>
-          <PrimaryBtn text={"Læs mere"} link={btnlink} />
-        </div>
+
+        <SecondaryBtn text={"Læs mere"} link={btnlink} />
       </div>
     </div>
   );

@@ -22,6 +22,7 @@
 
   @media (width<800px) {
     display: block;
+
     & .imgcontainer {
       height: 400px;
     }

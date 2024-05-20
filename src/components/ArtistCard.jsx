@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/ArtistCard.css";
 import SecondaryBtn from "./SecondaryBtn";
 import LikeBtn from "./LikeBtn";
+
 export default function ArtistCard(props) {
   const months = [
     "Januar",

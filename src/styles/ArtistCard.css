@@ -95,20 +95,30 @@
   font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 500;
 
-  &.Mint {
-    background-color: #6abcac;
+  &.SommerKlassisk {
+    background-color: #a6a76e;
   }
   &.Fredagsrock {
-    background-color: #ee1b5a;
+    background-color: #e4001b;
   }
-  &.OnsdagsJazz {
-    background-color: #d69026;
+  &.Mint {
+    background-color: #78d8f6;
+  }
+  &.OnsdagsJazz,
+  &.Onsdagsjazz {
+    background-color: #ee8829;
   }
   &.LoerdagsDans {
-    background-color: #c726d6;
+    background-color: #b6adf4;
   }
-  &.SommerKlassisk {
-    background-color: #421e8f;
+  &.Syngmeditivoli {
+    background-color: #1528d9;
+  }
+  &.LoerdagsHits {
+    background-color: #e1a7c1;
+  }
+  &.Havefest {
+    background-color: #127d10;
   }
 }
 
@@ -129,26 +139,29 @@
       color: var(--primary);
     }
     &.SommerKlassisk {
-      background-color: #d69026;
+      background-color: #a6a76e;
     }
     &.Fredagsrock {
-      background-color: #e70013;
+      background-color: #e4001b;
     }
     &.Mint {
-      background-color: #6abcac;
+      background-color: #78d8f6;
     }
     &.OnsdagsJazz,
     &.Onsdagsjazz {
-      background-color: #8f5e15;
+      background-color: #ee8829;
     }
     &.LoerdagsDans {
-      background-color: #c726d6;
+      background-color: #b6adf4;
     }
     &.Syngmeditivoli {
-      background-color: #421e8f;
+      background-color: #1528d9;
     }
     &.LoerdagsHits {
-      background-color: #8f1e68;
+      background-color: #e1a7c1;
+    }
+    &.Havefest {
+      background-color: #127d10;
     }
   }
 
@@ -174,26 +187,29 @@
     align-items: center;
 
     &.SommerKlassisk {
-      background-color: #d69026;
+      background-color: #a6a76e;
     }
     &.Fredagsrock {
-      background-color: #e70013;
+      background-color: #e4001b;
     }
     &.Mint {
-      background-color: #6abcac;
+      background-color: #78d8f6;
     }
     &.OnsdagsJazz,
     &.Onsdagsjazz {
-      background-color: #8f5e15;
+      background-color: #ee8829;
     }
     &.LoerdagsDans {
-      background-color: #c726d6;
+      background-color: #b6adf4;
     }
     &.Syngmeditivoli {
-      background-color: #421e8f;
+      background-color: #1528d9;
     }
     &.LoerdagsHits {
-      background-color: #8f1e68;
+      background-color: #e1a7c1;
+    }
+    &.Havefest {
+      background-color: #127d10;
     }
   }
 }

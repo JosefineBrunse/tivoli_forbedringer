@@ -29,15 +29,46 @@
     justify-content: space-between;
     padding: 1rem;
     border-top: 1px solid var(--secondary);
+    color: var(--primary);
+    &.OnsdagsJazz {
+      background-color: #ee8829;
+    }
+    &.SommerKlassisk {
+      background-color: #a6a76e;
+    }
+    &.Fredagsrock {
+      background-color: #e4001b;
+    }
+    &.Mint {
+      background-color: #78d8f6;
+    }
+    &.Havefest {
+      background-color: #127d10;
+    }
+    &.LørdagsDans {
+      background-color: #b6adf4;
+    }
+    &.Syng {
+      background-color: #1528d9;
+    }
+    &.LørdagsHits {
+      background-color: #e1a7c1;
+    }
   }
   & h3 {
     font-size: 1.3rem;
     line-height: 1.4rem;
   }
   & .imgcontainer {
+    position: relative;
     overflow: hidden;
     width: 100%;
 
+    & .imgoverlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
     & img {
       width: 100%;
       object-fit: cover;

@@ -9,6 +9,7 @@ import FilterBtn from "./FilterBtn";
 import SecondaryBtn from "./SecondaryBtn";
 import { useState, useEffect } from "react";
 import ArtistPosterCard from "./ArtistPosterCard";
+import PrimaryBtn from "./PrimaryBtn";
 
 const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
@@ -20,6 +21,7 @@ export default function ProgramComponent({ headline, data, filter }) {
   const [stemningFilter, setStemningFilter] = useState(null);
   const [monthFilter, setMonthFilter] = useState(null);
   const [posterView, setPosterView] = useState(false);
+  const [togglefilters, setToggleFilters] = useState(false);
   const [monthOptions, setMonthOptions] = useState([]);
 
   useEffect(() => {
@@ -45,6 +47,9 @@ export default function ProgramComponent({ headline, data, filter }) {
     let filteredDataCopy = [...data].filter(
       (event) => new Date(event.from) > new Date()
     );
+
+    // Sort events by the 'from' date
+    filteredDataCopy.sort((a, b) => new Date(a.from) - new Date(b.from));
 
     if (konceptFilter) {
       const capitalizedKonceptFilter =
@@ -102,7 +107,16 @@ export default function ProgramComponent({ headline, data, filter }) {
     <section className="program">
       <h2 className={`${myFont.className}`}>{headline}</h2>
       <div className="flexshelf">
-        <div className="filtershelf">
+        <div
+          className="hidden showfilters"
+          onClick={() => {
+            setToggleFilters((old) => !old);
+          }}
+        >
+          <button>Filtrer</button>
+        </div>
+        <div className={`filtershelf${togglefilters ? " active" : ""}`}>
+          <h3 className="filterheadline hidden">Filtre</h3>
           <FilterBtn
             changestate={changeKonceptState}
             value={konceptFilter}
@@ -152,6 +166,15 @@ export default function ProgramComponent({ headline, data, filter }) {
             id={"Month"}
             options={monthOptions}
           />
+
+          <div
+            onClick={() => {
+              setToggleFilters((old) => !old);
+            }}
+            className="viewresults hidden"
+          >
+            <PrimaryBtn text={"Se resultat"} />
+          </div>
         </div>
 
         <div className="flex">
