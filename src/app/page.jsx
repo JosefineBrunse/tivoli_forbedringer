@@ -17,6 +17,8 @@ import Navbar from "@/components/Navbar";
 import List from "@/components/List";
 
 import localFont from "next/font/local";
+import ProductShelf from "@/components/ProductShelf";
+import KonceptCard from "@/components/KonceptCard";
 
 const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
@@ -35,7 +37,6 @@ export default function Home() {
 
     if (mindata) {
       setData(mindata);
-      console.log(mindata);
     }
     if (error) {
       console.log(error);
@@ -52,6 +53,7 @@ export default function Home() {
       <PrimaryBtn text={"Se hele programmet"} />
     <SecondaryBtn text={"Læs mere"} /> */}
       <HeaderSlider data={data} />
+
       <TwoCol>
         <div className="imgcontainer">
           <video muted autoPlay loop src="genlyd_identitet.mp4"></video>
@@ -68,6 +70,63 @@ export default function Home() {
           <PrimaryBtn text={"læs mere"} />
         </List>
       </TwoCol>
+      <ProductShelf
+        headline={"Vi har helt sikkert noget til dig!"}
+        text={
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga blanditiis voluptas amet autem accusantium est, nisi possimus voluptatem eos repudiandae ex illo sed ullam nulla! Asperiores labore ex in repudiandae!"
+        }
+      >
+        <KonceptCard
+          headline={"Fredagsrock"}
+          text={"Fredage på plænen"}
+          imgsrc={"havefestimg.png"}
+          btnlink={"#"}
+        />
+        <KonceptCard
+          headline={"Havefest"}
+          text={"Fredagen starter her"}
+          imgsrc={"havefestimg.png"}
+          btnlink={"/Havefest"}
+        />
+        <KonceptCard
+          headline={"Mint"}
+          text={"Koncerter med ny dansk musik hver tirsdag"}
+          imgsrc={"havefestimg.png"}
+          btnlink={"#"}
+        />
+
+        <KonceptCard
+          headline={"SommerKlassisk"}
+          text={"Klassisk musik i verdensklasse - lige midt i Tivoli!"}
+          imgsrc={"havefestimg.png"}
+          btnlink={"#"}
+        />
+        <KonceptCard
+          headline={"Syng med i Tivoli"}
+          text={"Syng med i Tivoli"}
+          imgsrc={"havefestimg.png"}
+          btnlink={"#"}
+        />
+        <KonceptCard
+          headline={"LørdagsHits"}
+          text={"Lørdage på Plænen"}
+          imgsrc={"havefestimg.png"}
+          btnlink={"#"}
+        />
+        <KonceptCard
+          headline={"OnsdagsJazz"}
+          text={"Jazzsolister i verdensklasse"}
+          imgsrc={"havefestimg.png"}
+          btnlink={"#"}
+        />
+        <KonceptCard
+          headline={"LørdagsDans"}
+          text={"Bal under stjernerne"}
+          imgsrc={"havefestimg.png"}
+          btnlink={"#"}
+        />
+      </ProductShelf>
+
       <ProgramComponent headline={"Program"} data={data} />
     </main>
   );

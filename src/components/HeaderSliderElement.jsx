@@ -26,7 +26,7 @@ export default function HeaderSliderElement(props) {
       ref={scrollRef}
       className="headersliderelement"
       style={{
-        backgroundImage: `url(https://source.unsplash.com/random/")`,
+        backgroundImage: `url(https://source.unsplash.com/random/)`,
       }}
     >
       <div className={"info"}>

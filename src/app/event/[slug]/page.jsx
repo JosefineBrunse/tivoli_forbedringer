@@ -1,4 +1,4 @@
-import { loginInfo } from "@/app/data";
+import { programdata } from "@/app/data";
 import styles from "./singleview.module.css";
 import localFont from "next/font/local";
 import TwoCol from "@/components/TwoCol";
@@ -10,7 +10,7 @@ const myFont = localFont({
   src: "../../../../public/typografi/DomaineDisplayWeb-Black.woff2",
 });
 export async function generateStaticParams() {
-  const paths = loginInfo.map((thing) => {
+  const paths = programdata.map((thing) => {
     if (thing.slug) {
       return { slug: thing.slug.toString() };
     }
@@ -21,23 +21,47 @@ export async function generateStaticParams() {
 
 export default function page({ params }) {
   const { slug } = params;
-  const event = loginInfo.find((thing) => thing.slug === slug);
+  const event = programdata.find((thing) => thing.slug === slug);
   console.log(event);
+
+  const months = [
+    "januar",
+    "februar",
+    "marts",
+    "april",
+    "maj",
+    "juni",
+    "juli",
+    "august",
+    "september",
+    "oktober",
+    "november",
+    "december",
+  ];
+
+  const date = new Date(event.from);
+
+  const formattedDate = `${date.getDate()}. ${months[date.getMonth()]}`;
+
+  const hours = date.getHours().toString().padStart(2, "0");
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  const formattedTime = `${hours}:${minutes}`;
 
   return (
     <main className={styles.main}>
       <section
         style={{
-          backgroundImage: `url(./header3.jpeg)`,
+          backgroundImage: `url(/header3.jpeg)`,
         }}
         className={styles.header}
       >
         <div className={styles.info}>
           <div className={styles.smallinfo}>
-            <p className={styles.koncept}></p>
+            <p className={styles.koncept}>{event.koncept}</p>
             <div>
-              <p className={styles.date}>10. maj</p>
-              <p className={styles.time}>{event.from}</p>
+              <p className={styles.time}>
+                {formattedDate + " -  " + formattedTime}
+              </p>
             </div>
             <p className={styles.place}>{event.place}</p>
           </div>
@@ -45,24 +69,22 @@ export default function page({ params }) {
         </div>
         <div className={styles.headerimg}></div>
       </section>
-      <h3 className={`${myFont.className}`}>Om kunstneren</h3>
-      <TwoCol>
+      <div className={styles.headline}>
+        <h3 className={`${myFont.className} slugheadline`}>Om kunstneren</h3>
+      </div>
+
+      <div className={styles.infoshelf}>
         {event.spotifyurl ? (
           <div>
             <SpotifyEmbed src={event.spotifyurl} />
-            {event.spotifyurl2 ? <SpotifyEmbed src={event.spotifyurl} /> : null}
+            {event.spotifyurl2 ? (
+              <SpotifyEmbed src={event.spotifyurl2} />
+            ) : null}
           </div>
         ) : null}
         <DescriptionComponent description={event.description} />
-      </TwoCol>
-
-      <Carroussel title={"Om Havefest"}>
-        <img src="imghigh.png" alt="" />
-        <img src="imglong.png" alt="" />
-        <img src="imghigh.png" alt="" />
-        <img src="imghigh.png" alt="" />
-        <img src="imglong.png" alt="" />
-      </Carroussel>
+      </div>
+      <div className={styles.headline}></div>
     </main>
   );
 }

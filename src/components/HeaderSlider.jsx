@@ -15,18 +15,35 @@ export default function HeaderSlider({ data }) {
   const slideDuration = 0.8;
   const [activeDotIndex, setActiveDotIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
+    filterAndSortData(data); // Filter and sort data on initial load
+
     // Auto-scroll to the next slide every 5 seconds
     const intervalId = setInterval(() => {
       animateSlides(-1); // Scroll to the next slide
     }, 5000);
 
-    // Cleanup function to clear the interval when component unmounts or when arrow buttons are clicked
+    // Cleanup function to clear the interval when component unmounts
     return () => {
       clearInterval(intervalId);
     };
-  }, []);
+  }, [data]);
+
+  const filterAndSortData = (data) => {
+    // Filter events to include only upcoming events
+    const now = new Date();
+    let filteredDataCopy = data.filter((item) => new Date(item.from) >= now);
+
+    // Sort events by date
+    filteredDataCopy.sort((a, b) => new Date(a.from) - new Date(b.from));
+
+    // Limit to the first 5 events
+    filteredDataCopy = filteredDataCopy.slice(0, 5);
+
+    setFilteredData(filteredDataCopy);
+  };
 
   function animateSlides(direction) {
     if (isAnimating) return; // Don't animate if already animating
@@ -93,21 +110,10 @@ export default function HeaderSlider({ data }) {
     };
   }, [isAnimating]);
 
-  // useEffect(() => {
-  //   if (data) {
-  //     const proxy = proxyRef.current;
-  //     const slideWidth = proxy.children[0].offsetWidth; // Get width of first child
-  //     const activeIndex = Math.round(
-  //       -gsap.getProperty(proxy, "x") / slideWidth
-  //     );
-  //     setActiveDotIndex(activeIndex);
-  //   }
-  // }, [proxyRef.current]);
-
   let dots = [];
-  // if (proxyRef.current && data) {
-  //   dots = Array.from(proxyRef.current.children).map((_, index) => index);
-  // }
+  if (proxyRef.current && filteredData) {
+    dots = Array.from(proxyRef.current.children).map((_, index) => index);
+  }
 
   return (
     <div className="scrollelementcontainer">
@@ -138,18 +144,21 @@ export default function HeaderSlider({ data }) {
           : null}
       </div>
       <section className="headerslider" ref={proxyRef}>
-        {data
-          ? data.map((artist) => (
-              <HeaderSliderElement
-                img={"header.png"}
-                headline={artist.name}
-                time={artist.time}
-                place={artist.place}
-                koncept={artist.koncept}
-                slug={artist.slug}
-              />
-            ))
-          : null}
+        {filteredData.length > 0 ? (
+          filteredData.map((artist) => (
+            <HeaderSliderElement
+              key={artist.slug} // Add a unique key
+              img={"header.png"}
+              headline={artist.name}
+              time={artist.time}
+              place={artist.place}
+              koncept={artist.koncept}
+              slug={artist.slug}
+            />
+          ))
+        ) : (
+          <p>No events found</p>
+        )}
       </section>
     </div>
   );

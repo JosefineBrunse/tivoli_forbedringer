@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./program.module.css";
-import { loginInfo } from "../data";
+import { programdata } from "../data";
 
 export default function Program() {
   return (

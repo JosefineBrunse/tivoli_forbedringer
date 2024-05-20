@@ -5,18 +5,18 @@ import SecondaryBtn from "./SecondaryBtn";
 import LikeBtn from "./LikeBtn";
 export default function ArtistCard(props) {
   const months = [
-    "januar",
-    "februar",
-    "marts",
-    "april",
-    "maj",
-    "juni",
-    "juli",
-    "august",
-    "september",
-    "oktober",
-    "november",
-    "december",
+    "Januar",
+    "Februar",
+    "Marts",
+    "April",
+    "Maj",
+    "Juni",
+    "Juli",
+    "August",
+    "September",
+    "Oktober",
+    "November",
+    "December",
   ];
 
   const date = new Date(props.time);

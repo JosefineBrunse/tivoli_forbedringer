@@ -1,0 +1,46 @@
+.productshelf {
+  padding: 2rem;
+  & .grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (width<1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (width<800px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    gap: 1rem;
+    row-gap: 2rem;
+  }
+}
+
+.konceptcard {
+  height: 300px;
+  border: 1px solid var(--secondary);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+
+  & .bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    border-top: 1px solid var(--secondary);
+  }
+  & h3 {
+    font-size: 1.3rem;
+    line-height: 1.4rem;
+  }
+  & .imgcontainer {
+    overflow: hidden;
+    width: 100%;
+
+    & img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
