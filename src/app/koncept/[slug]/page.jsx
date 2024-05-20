@@ -29,12 +29,7 @@ export default function page({ params }) {
     <main className={styles.main}>
       <div className={styles.header}>
         <div className={styles.info}>
-          <h1
-            style={{
-              color: dettekoncept.color,
-            }}
-            className={`${myFont.className} ${styles.konceptheadline}`}
-          >
+          <h1 className={`${myFont.className} ${styles.konceptheadline}`}>
             {dettekoncept.name}
           </h1>
           <p>{dettekoncept.description}</p>
