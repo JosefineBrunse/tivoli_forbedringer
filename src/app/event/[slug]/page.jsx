@@ -51,7 +51,9 @@ export default function page({ params }) {
     <main className={styles.main}>
       <section
         style={{
-          backgroundImage: `url(/header3.jpeg)`,
+          backgroundImage: `url(https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/${
+            event.img ? event.img : event.slug
+          }.webp)`,
         }}
         className={styles.header}
       >
@@ -65,13 +67,11 @@ export default function page({ params }) {
             </div>
             <p className={styles.place}>{event.place}</p>
           </div>
-          <h2 className={`${myFont.className}`}>{event.name}</h2>
+          <h1 className={`${myFont.className} ${styles.h1}`}>{event.name}</h1>
         </div>
         <div className={styles.headerimg}></div>
       </section>
-      <div className={styles.headline}>
-        <h3 className={`${myFont.className} slugheadline`}>Om kunstneren</h3>
-      </div>
+      <div className={styles.headline}></div>
 
       <div className={styles.infoshelf}>
         {event.spotifyurl ? (
@@ -82,7 +82,12 @@ export default function page({ params }) {
             ) : null}
           </div>
         ) : null}
-        <DescriptionComponent description={event.description} />
+        <div>
+          <h3 className={`${myFont.className} slugheadline`}>
+            {"Om " + event.name}
+          </h3>
+          <DescriptionComponent description={event.description} />
+        </div>
       </div>
       <div className={styles.headline}></div>
     </main>

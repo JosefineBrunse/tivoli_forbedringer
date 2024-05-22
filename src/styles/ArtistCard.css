@@ -51,9 +51,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (width<800px) {
+      border-right: 0px solid var(--secondary);
+      border: none;
+    }
 
     & img {
       object-fit: cover;
+      height: 100%;
       width: 100%;
     }
   }
@@ -95,7 +100,7 @@
   font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 500;
 
-  &.SommerKlassisk {
+  &.Sommerklassisk {
     background-color: #a6a76e;
   }
   &.Fredagsrock {
@@ -108,13 +113,14 @@
   &.Onsdagsjazz {
     background-color: #ee8829;
   }
+  &.Lørdagsdans,
   &.LoerdagsDans {
     background-color: #b6adf4;
   }
   &.Syngmeditivoli {
     background-color: #1528d9;
   }
-  &.LoerdagsHits {
+  &.Lørdagshits {
     background-color: #e1a7c1;
   }
   &.Havefest {
@@ -138,7 +144,10 @@
     & h3 {
       color: var(--primary);
     }
-    &.SommerKlassisk {
+    &.Sommerklassisk {
+      background-color: #a6a76e;
+    }
+    &.Sommerklassisk {
       background-color: #a6a76e;
     }
     &.Fredagsrock {
@@ -151,13 +160,14 @@
     &.Onsdagsjazz {
       background-color: #ee8829;
     }
+    &.Lørdagsdans,
     &.LoerdagsDans {
       background-color: #b6adf4;
     }
     &.Syngmeditivoli {
       background-color: #1528d9;
     }
-    &.LoerdagsHits {
+    &.Lørdagshits {
       background-color: #e1a7c1;
     }
     &.Havefest {
@@ -186,7 +196,10 @@
     justify-content: center;
     align-items: center;
 
-    &.SommerKlassisk {
+    &.Sommerklassisk {
+      background-color: #a6a76e;
+    }
+    &.Sommerklassisk {
       background-color: #a6a76e;
     }
     &.Fredagsrock {
@@ -199,13 +212,14 @@
     &.Onsdagsjazz {
       background-color: #ee8829;
     }
+    &.Lørdagsdans,
     &.LoerdagsDans {
       background-color: #b6adf4;
     }
     &.Syngmeditivoli {
       background-color: #1528d9;
     }
-    &.LoerdagsHits {
+    &.Lørdagshits {
       background-color: #e1a7c1;
     }
     &.Havefest {

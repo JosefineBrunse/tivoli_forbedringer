@@ -77,6 +77,7 @@ export default function ProgramComponent({ headline, data, filter }) {
     }
 
     setFilteredData(filteredDataCopy);
+    console.log(filteredDataCopy);
   }, [data, konceptFilter, GenreFilter, stemningFilter, monthFilter]);
 
   function changeKonceptState(name, value) {
@@ -127,7 +128,7 @@ export default function ProgramComponent({ headline, data, filter }) {
               { value: "mint" },
               { value: "lørdagsdans" },
               { value: "onsdagsjazz" },
-              { value: "sommerklassik" },
+              { value: "sommerklassisk" },
               { value: "lørdagshits" },
               { value: "syngmedtivoli" },
               { value: "havefest" },
@@ -258,6 +259,8 @@ export default function ProgramComponent({ headline, data, filter }) {
                       time={artist.from}
                       place={artist.place}
                       slug={artist.slug}
+                      fleretider={artist.fleretider}
+                      img={artist.img}
                     />
                   ))}
                 </div>
@@ -305,6 +308,8 @@ export default function ProgramComponent({ headline, data, filter }) {
                       time={artist.from}
                       place={artist.place}
                       slug={artist.slug}
+                      fleretider={artist.fleretider}
+                      img={artist.img}
                     />
                   ))}
                 </div>

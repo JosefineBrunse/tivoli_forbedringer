@@ -22,9 +22,9 @@ export default function Navbar({ koncepter }) {
         </Link>
 
         <article className={"nav-menu " + (active ? "active" : "")}>
-          <h1>menu</h1>
+          <h1 style={{ "--index": 1 }}>menu</h1>
           <ul>
-            <li className="nav-item">
+            <li className="nav-item" style={{ "--index": 2 }}>
               <Link
                 className="nav-link"
                 href="/program"
@@ -33,8 +33,12 @@ export default function Navbar({ koncepter }) {
                 Program
               </Link>
             </li>
-            {koncepter.map((item) => (
-              <li className="nav-item under">
+            {koncepter.map((item, index) => (
+              <li
+                className="nav-item under"
+                key={item.slug}
+                style={{ "--index": index + 3 }}
+              >
                 <Link
                   className="nav-link"
                   href={"/koncept/" + item.slug}
@@ -44,8 +48,33 @@ export default function Navbar({ koncepter }) {
                 </Link>
               </li>
             ))}
+            <li
+              className="nav-item head"
+              style={{ "--index": koncepter.length + 3 }}
+            >
+              <Link
+                className="nav-link"
+                href="/another-link"
+                onClick={handleBurgerClick}
+              >
+                Profil
+              </Link>
+            </li>
+            <li
+              className="nav-item head"
+              style={{ "--index": koncepter.length + 4 }}
+            >
+              <Link
+                className="nav-link"
+                href="/another-link"
+                onClick={handleBurgerClick}
+              >
+                Om Tivoli genlyd
+              </Link>
+            </li>
           </ul>
         </article>
+
         <div
           className={"hamburger " + (active ? "active" : "")}
           onClick={handleBurgerClick}

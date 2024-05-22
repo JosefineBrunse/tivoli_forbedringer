@@ -26,7 +26,9 @@ export default function HeaderSliderElement(props) {
       ref={scrollRef}
       className="headersliderelement"
       style={{
-        backgroundImage: `url(https://source.unsplash.com/random/)`,
+        backgroundImage: `url(https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/${
+          props.img ? props.img : props.slug
+        }.webp)`,
       }}
     >
       <div className={"info"}>
@@ -38,7 +40,10 @@ export default function HeaderSliderElement(props) {
           </div>
           <p className="place">{props.place}</p>
         </div>
-        <h2 className={`${myFont.className}`} onClick={scrollforward}>
+        <h2
+          className={`${myFont.className} ${"headline"}`}
+          onClick={scrollforward}
+        >
           {props.headline}
         </h2>
 

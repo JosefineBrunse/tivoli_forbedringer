@@ -7,7 +7,6 @@ body {
   --primary: #fdf8ee;
   --secondary: #1e1e1e;
   --primary-dark: #f1ebdf;
-
   scroll-behavior: smooth;
   background-color: var(--primary);
 }
@@ -19,6 +18,9 @@ select,
 option {
   font-family: "neue-haas-grotesk-text", sans-serif;
   font-weight: 400;
+}
+select {
+  color: var(--secondary);
 }
 
 p {

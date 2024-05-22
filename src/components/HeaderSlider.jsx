@@ -148,12 +148,12 @@ export default function HeaderSlider({ data }) {
           filteredData.map((artist) => (
             <HeaderSliderElement
               key={artist.slug} // Add a unique key
-              img={"header.png"}
               headline={artist.name}
               time={artist.time}
               place={artist.place}
               koncept={artist.koncept}
               slug={artist.slug}
+              img={artist.img}
             />
           ))
         ) : (

@@ -15,6 +15,7 @@ export default function ArtistPosterCard(props) {
       className={"artistcard poster " + props.tag}
     >
       <h3>{props.name}</h3>
+
       <p className={"time " + props.tag}>{formattedDate}</p>
     </a>
   );

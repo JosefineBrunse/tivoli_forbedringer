@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/ArtistCard.css";
 import SecondaryBtn from "./SecondaryBtn";
 import LikeBtn from "./LikeBtn";
+import Link from "next/link";
 
 export default function ArtistCard(props) {
   const months = [
@@ -29,17 +30,27 @@ export default function ArtistCard(props) {
   const formattedTime = `${hours}:${minutes}`;
 
   return (
-    <div className="artistcard" href="#">
+    <Link className="artistcard" href={`event/` + props.slug}>
       <div className="imgcontainer">
-        <img
-          src={props.img}
-          // {
-          //   "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/" +
-          //   props.slug +
-          //   ".webp"
-          // }
-          alt=""
-        />
+        {props.img ? (
+          <img
+            src={
+              "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/" +
+              props.img +
+              ".webp"
+            }
+            alt=""
+          />
+        ) : (
+          <img
+            src={
+              "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/" +
+              props.slug +
+              ".webp"
+            }
+            alt=""
+          />
+        )}
       </div>
       <div className="artistcardinfo">
         <div className="flexbetween">
@@ -52,13 +63,18 @@ export default function ArtistCard(props) {
         </div>
         <div className="bottom">
           <div className="artistcardinfodetails">
-            <p className="time">{formattedDate + " - kl." + formattedTime}</p>
+            <p className="time">
+              {formattedDate +
+                (props.fleretider && props.fleretider.length > 0
+                  ? " - Flere tider"
+                  : " - kl." + formattedTime)}
+            </p>
 
             <p className="place">{props.place}</p>
           </div>
-          <SecondaryBtn text={"Læs mere"} link={"event/" + props.slug} />
+          <SecondaryBtn text={"Læs mere"} link={"/event/" + props.slug} />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
