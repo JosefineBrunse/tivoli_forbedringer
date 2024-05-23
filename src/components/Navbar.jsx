@@ -54,7 +54,7 @@ export default function Navbar({ koncepter }) {
             >
               <Link
                 className="nav-link"
-                href="/another-link"
+                href="user"
                 onClick={handleBurgerClick}
               >
                 Profil
