@@ -219,6 +219,10 @@ export default function Login() {
                   onChange={handlePasswordChange}
                 />
               </div>
+              <label htmlFor="keep">
+                <input type="checkbox" id="keep" name="keep" />
+                Hold mig logget ind
+              </label>
               <input className="primary-button" type="submit" value="Login" />
             </form>
 

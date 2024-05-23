@@ -111,4 +111,19 @@
       border-top: 1px solid var(--secondary);
     }
   }
+  & label:has(input[type="checkbox"]) {
+    flex-direction: row;
+    width: fit-content;
+    cursor: pointer;
+    gap: 0.2rem;
+    margin-top: 1rem;
+    align-items: center;
+    &:hover {
+      opacity: 0.7;
+    }
+    & input[type="checkbox"] {
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
 }
