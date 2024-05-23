@@ -126,4 +126,19 @@
       cursor: pointer;
     }
   }
+
+  @media (width<800px) {
+    display: block;
+
+    & .img {
+      padding-block: 4rem;
+    }
+
+    & .login-container {
+      padding: 1rem;
+    }
+    & .login-account {
+      margin-bottom: 2rem;
+    }
+  }
 }
