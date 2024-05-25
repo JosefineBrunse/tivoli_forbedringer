@@ -4,6 +4,7 @@ import styles from "../styles/ArtistCard.css";
 import SecondaryBtn from "./SecondaryBtn";
 import LikeBtn from "./LikeBtn";
 import Link from "next/link";
+import PrimaryBtn from "./PrimaryBtn";
 
 export default function ArtistCard(props) {
   const months = [
@@ -59,7 +60,7 @@ export default function ArtistCard(props) {
             <h3>{props.name}</h3>
             <h4 className="shortdescription">{props.shortDescription}</h4>
           </div>
-          <LikeBtn></LikeBtn>
+          <LikeBtn artistId={props.id}></LikeBtn>
         </div>
         <div className="bottom">
           <div className="artistcardinfodetails">
@@ -72,7 +73,7 @@ export default function ArtistCard(props) {
 
             <p className="place">{props.place}</p>
           </div>
-          <SecondaryBtn text={"Læs mere"} link={"/event/" + props.slug} />
+          <PrimaryBtn text={"Læs mere"} link={"/event/" + props.slug} />
         </div>
       </div>
     </Link>

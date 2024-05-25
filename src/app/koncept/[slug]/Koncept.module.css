@@ -38,6 +38,12 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+
+  & img {
+    object-fit: cover;
+    width: 100%;
+    align-self: center;
+  }
 }
 
 .overlay {

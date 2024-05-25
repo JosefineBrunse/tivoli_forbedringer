@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <main className={"loginside"}>
       {/* <Login /> */}
-      <User />
+      <User data={programdata} />
     </main>
   );
 }

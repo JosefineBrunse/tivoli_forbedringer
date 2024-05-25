@@ -8,7 +8,7 @@ import localFont from "next/font/local";
 const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
 });
-export default function AccordionContainer({ children }) {
+export default function AccordionContainer({ children, accordions }) {
   const [close, setClose] = useState();
 
   function handleAccordions() {
@@ -21,46 +21,14 @@ export default function AccordionContainer({ children }) {
           <h2 className={`${myFont.className}`}>FAQ</h2>
           <p>her kan du få svar på dine spørgsmål omkring Tivoli Genlyd</p>
         </div>
-        <Accordion
-          handleAccordions={handleAccordions}
-          globalactive={close}
-          headline={"Hvad er Tivoli Genlyd?"}
-          text={
-            "sdjfhksdjhfkjdshfjkhsd fsdkjhfksdjhfkjsd sdjhfksdjhfkjhsd sdkjfhsdkjfhsdk sdkjhfksdhjfk sdkjhfksdjhf"
-          }
-        />
-        <Accordion
-          handleAccordions={handleAccordions}
-          globalactive={close}
-          headline={"Hvornår er Tivoli Genlyd?"}
-          text={
-            "sdjfhksdjhfkjdshfjkhsd fsdkjhfksdjhfkjsd sdjhfksdjhfkjhsd sdkjfhsdkjfhsdk sdkjhfksdhjfk sdkjhfksdjhf"
-          }
-        />
-        <Accordion
-          handleAccordions={handleAccordions}
-          globalactive={close}
-          headline={"Hvornår er Tivoli Genlyd?"}
-          text={
-            "sdjfhksdjhfkjdshfjkhsd fsdkjhfksdjhfkjsd sdjhfksdjhfkjhsd sdkjfhsdkjfhsdk sdkjhfksdhjfk sdkjhfksdjhf"
-          }
-        />
-        <Accordion
-          handleAccordions={handleAccordions}
-          globalactive={close}
-          headline={"Hvornår er Tivoli Genlyd?"}
-          text={
-            "sdjfhksdjhfkjdshfjkhsd fsdkjhfksdjhfkjsd sdjhfksdjhfkjhsd sdkjfhsdkjfhsdk sdkjhfksdhjfk sdkjhfksdjhf"
-          }
-        />
-        <Accordion
-          handleAccordions={handleAccordions}
-          globalactive={close}
-          headline={"Hvornår er Tivoli Genlyd?"}
-          text={
-            "sdjfhksdjhfkjdshfjkhsd fsdkjhfksdjhfkjsd sdjhfksdjhfkjhsd sdkjfhsdkjfhsdk sdkjhfksdhjfk sdkjhfksdjhf"
-          }
-        />
+        {accordions.map((acc) => (
+          <Accordion
+            handleAccordions={handleAccordions}
+            globalactive={close}
+            headline={acc.headline}
+            text={acc.text}
+          />
+        ))}
       </div>
     </section>
   );

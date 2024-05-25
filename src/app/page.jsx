@@ -18,6 +18,8 @@ import localFont from "next/font/local";
 import ProductShelf from "@/components/ProductShelf";
 import KonceptCard from "@/components/KonceptCard";
 import { konceptdata, programdata } from "@/app/data";
+import DynamicProductShelf from "@/components/DynamicProductShelf";
+import DynamicKonceptCard from "@/components/DynamicKonceptCard";
 
 const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
@@ -42,18 +44,22 @@ export default function Home() {
         <List>
           <h2 className={`${myFont.className}`}>Hvad er Tivoli genllyd?</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-            eveniet quibusdam fugiat quo aperiam obcaecati id, minima deleniti
-            dolore delectus aliquam, minus sapiente alias? Eveniet mollitia
-            ratione eum ipsa ut.
+            Tivoli genlyd er stedet der samler alle tivolis musikkoncepter et
+            sted, for at gøre det nemmere for dig at finde rundt i så du
+            udelukkende kan koncentrere dig om hvad du har lyst til opleve, med
+            hvem og hvornår!
           </p>
-          <PrimaryBtn text={"læs mere"} />
+          <div className="flex">
+            <PrimaryBtn text={"læs mere"} link={"/about"} />
+            <PrimaryBtn text={"Se programmet"} link={"/about"} fill={true} />
+          </div>
         </List>
       </TwoCol>
+
       <ProductShelf
         headline={"Vi har helt sikkert noget til dig!"}
         text={
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga blanditiis voluptas amet autem accusantium est, nisi possimus voluptatem eos repudiandae ex illo sed ullam nulla! Asperiores labore ex in repudiandae!"
+          "Det gode ved Tivoli Genlyd er at man kan høre lidt af det hele, vi har nemlig samlet en masse forskellige genre og steminger under 8 koncepter der sikre at der altid er noget til dig uanset dit humør!"
         }
       >
         {konceptdata
@@ -61,7 +67,7 @@ export default function Home() {
               <KonceptCard
                 headline={koncept.name}
                 text={koncept.shortDescription}
-                imgsrc={"havefestimg.png"}
+                imgsrc={`https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/koncept/img/${koncept.slug}/head.webp`}
                 btnlink={"koncept/" + koncept.slug}
               />
             ))

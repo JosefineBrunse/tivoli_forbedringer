@@ -3,9 +3,14 @@ import styles from "../styles/productshelf.css";
 import SecondaryBtn from "./SecondaryBtn";
 import PrimaryBtn from "./PrimaryBtn";
 
-export default function KonceptCard({ imgsrc, headline, text, btnlink }) {
+export default function DynamicKonceptCard({
+  imgsrc,
+  headline,
+  text,
+  btnlink,
+}) {
   return (
-    <div className="konceptcard">
+    <div className="dynamic konceptcard">
       <div className="imgcontainer">
         <div className={"imgoverlay"}></div>
         <img src={imgsrc} alt="" />

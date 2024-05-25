@@ -8,6 +8,7 @@ const myFont = localFont({
 });
 
 import { konceptdata, programdata } from "@/app/data";
+import Carroussel from "@/components/Carroussel";
 const koncept = konceptdata;
 console.log(konceptdata);
 const program = programdata;
@@ -37,9 +38,28 @@ export default function page({ params }) {
         </div>
         <div className={styles.overlay}></div>
         <div className={styles.videocontainer}>
-          <video src="havefest.mp4" muted loop autoPlay></video>
+          {dettekoncept.img ? (
+            <img
+              src={`https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/koncept/img/${dettekoncept.slug}/head.webp`}
+              alt=""
+            />
+          ) : (
+            <video
+              src={`https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/koncept/video/${dettekoncept.slug}.webm`}
+              muted
+              loop
+              autoPlay
+            ></video>
+          )}
         </div>
       </div>
+
+      {dettekoncept.stemning ? (
+        <Carroussel
+          title={`Få ${dettekoncept.name} følelsen`}
+          slug={dettekoncept.slug}
+        ></Carroussel>
+      ) : null}
 
       <ProgramComponent
         headline={"Program"}

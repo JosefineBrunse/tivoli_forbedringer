@@ -10,11 +10,19 @@ import SecondaryBtn from "./SecondaryBtn";
 import { useState, useEffect } from "react";
 import ArtistPosterCard from "./ArtistPosterCard";
 import PrimaryBtn from "./PrimaryBtn";
+import Quiz from "./Quizcard";
+import Quizcard from "./Quizcard";
 
 const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
 });
-export default function ProgramComponent({ headline, data, filter }) {
+export default function ProgramComponent({
+  headline,
+  data,
+  filter,
+  likedArtists,
+  viewLiked,
+}) {
   const [filteredData, setFilteredData] = useState([]);
   const [konceptFilter, setKonceptFilter] = useState(filter || null);
   const [GenreFilter, setGenreFilter] = useState(null);
@@ -23,6 +31,7 @@ export default function ProgramComponent({ headline, data, filter }) {
   const [posterView, setPosterView] = useState(false);
   const [togglefilters, setToggleFilters] = useState(false);
   const [monthOptions, setMonthOptions] = useState([]);
+  const [likedartist, setlikedartists] = useState();
 
   useEffect(() => {
     const currentDate = new Date();
@@ -39,8 +48,6 @@ export default function ProgramComponent({ headline, data, filter }) {
     ];
 
     setMonthOptions(uniqueMonths.map((month) => ({ value: month })));
-
-    setFilteredData(validData);
   }, [data]);
 
   useEffect(() => {
@@ -76,7 +83,19 @@ export default function ProgramComponent({ headline, data, filter }) {
       );
     }
 
-    setFilteredData(filteredDataCopy);
+    if (likedArtists && likedArtists.length > 0) {
+      const likedArtistIds = likedArtists.map((artist) => artist.id);
+      const filteredLikedData = filteredDataCopy.filter((event) =>
+        likedArtistIds.includes(event.id)
+      );
+      console.log("FROM THE LIKED PROGRAM", filteredLikedData);
+
+      setFilteredData(filteredLikedData);
+    } else {
+      console.log("HELLOOOOOO");
+      setFilteredData(filteredDataCopy);
+    }
+
     console.log(filteredDataCopy);
   }, [data, konceptFilter, GenreFilter, stemningFilter, monthFilter]);
 
@@ -261,6 +280,7 @@ export default function ProgramComponent({ headline, data, filter }) {
                       slug={artist.slug}
                       fleretider={artist.fleretider}
                       img={artist.img}
+                      id={artist.id}
                     />
                   ))}
                 </div>
@@ -270,20 +290,7 @@ export default function ProgramComponent({ headline, data, filter }) {
         </div>
       ) : (
         <div className="artistlist">
-          {/* {filteredData
-            ? filteredData.map((artist, index) => (
-                <ArtistCard
-                  key={index}
-                  tag={artist.koncept}
-                  name={artist.name}
-                  shortDescription={artist.shortDescription}
-                  time={artist.from}
-                  place={artist.place}
-                  img={"https://source.unsplash.com/random/"}
-                  slug={artist.slug}
-                />
-              ))
-            : null} */}
+          <Quizcard />
 
           {Object.keys(groupedByMonth).map((month, index) => {
             // Check if MonthFilter is set and if the current month matches the filter
@@ -310,6 +317,7 @@ export default function ProgramComponent({ headline, data, filter }) {
                       slug={artist.slug}
                       fleretider={artist.fleretider}
                       img={artist.img}
+                      id={artist.id}
                     />
                   ))}
                 </div>

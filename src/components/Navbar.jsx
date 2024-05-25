@@ -66,7 +66,7 @@ export default function Navbar({ koncepter }) {
             >
               <Link
                 className="nav-link"
-                href="/another-link"
+                href="/about"
                 onClick={handleBurgerClick}
               >
                 Om Tivoli genlyd

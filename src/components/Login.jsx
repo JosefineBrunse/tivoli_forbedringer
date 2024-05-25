@@ -25,6 +25,7 @@ export default function Login() {
   const [zip, setZip] = useState("");
   const [allUsers, setAllUsers] = useState([]);
   const [user, setUser] = useState();
+  const [keepLoggedIn, setKeepLoggedIn] = useState(false);
   const [userStatus, setUserStatus] = useState("");
 
   const userState = useContext(UserContext);
@@ -153,7 +154,9 @@ export default function Login() {
 
       await setUser(userObject);
       await userDispatch(userObject);
-      sessionStorage.setItem("userlogin", JSON.stringify(userObject));
+      if (keepLoggedIn) {
+        sessionStorage.setItem("userid", JSON.stringify(userObject.id));
+      }
       console.log("LoginNow success");
     } else {
       setUserStatus("Email or password is incorrect.");
@@ -220,7 +223,14 @@ export default function Login() {
                 />
               </div>
               <label htmlFor="keep">
-                <input type="checkbox" id="keep" name="keep" />
+                <input
+                  type="checkbox"
+                  id="keep"
+                  name="keep"
+                  onChange={(e) => {
+                    setKeepLoggedIn(e.target.checked);
+                  }}
+                />
                 Hold mig logget ind
               </label>
               <input className="primary-button" type="submit" value="Login" />
