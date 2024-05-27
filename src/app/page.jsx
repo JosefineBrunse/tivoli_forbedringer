@@ -91,7 +91,14 @@ export default function Home() {
             naturligvis mange flere oplevelser.
           </p>
           <div className="flex">
-            <PrimaryBtn text={"Køb tivolikort"} link={"/about"} fill={true} />
+            <PrimaryBtn
+              text={"Køb tivolikort"}
+              link={
+                "https://www.tivoli.dk/da/billetter-og-tivolikort/tivolikort"
+              }
+              target={"blank"}
+              fill={true}
+            />
           </div>
         </List>
       </TwoCol>

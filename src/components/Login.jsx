@@ -188,10 +188,15 @@ export default function Login() {
     <section className="login ">
       <section className="img">
         <div className="loginheader">
-          <h1 className={`${myFont.className}`}>Velkommen tilbage</h1>
+          <h1 className={`${myFont.className}`}>
+            {showCreateLogin
+              ? "Få max ud af Tivoli Genlyd!"
+              : "Velkommen tilbage!"}
+          </h1>
           <p>
-            Login ind på din konto for at får adgang til dit personlige program,
-            dit tivolikort og din kontooversigt.
+            {showCreateLogin
+              ? "Med en Tivoli genlyd bruger kan du oprette dit helt eget personlige program, få adgang til alt nyt indhold og generelt være med på beatet"
+              : "  Login ind på din konto for at får adgang til dit personlige program, dit tivolikort og din kontooversigt."}
           </p>
         </div>
         <div className="imgoverlay"></div>

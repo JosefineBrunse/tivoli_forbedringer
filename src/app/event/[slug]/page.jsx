@@ -5,6 +5,7 @@ import TwoCol from "@/components/TwoCol";
 import SpotifyEmbed from "@/components/SpotifyEmbed";
 import Carroussel from "@/components/Carroussel";
 import DescriptionComponent from "@/components/Description";
+import LikeBtn from "@/components/LikeBtn";
 
 const myFont = localFont({
   src: "../../../../public/typografi/DomaineDisplayWeb-Black.woff2",
@@ -68,6 +69,9 @@ export default function page({ params }) {
             <p className={styles.place}>{event.place}</p>
           </div>
           <h1 className={`${myFont.className} ${styles.h1}`}>{event.name}</h1>
+          <div className={styles.likebtncontainer}>
+            <LikeBtn artistId={event.id} />
+          </div>
         </div>
         <div className={styles.headerimg}></div>
       </section>

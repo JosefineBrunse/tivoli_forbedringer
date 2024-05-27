@@ -11,6 +11,29 @@ const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
 });
 export default function HeaderSliderElement(props) {
+  const months = [
+    "Januar",
+    "Februar",
+    "Marts",
+    "April",
+    "Maj",
+    "Juni",
+    "Juli",
+    "August",
+    "September",
+    "Oktober",
+    "November",
+    "December",
+  ];
+
+  const date = new Date(props.time);
+
+  const formattedDate = `${date.getDate()}. ${months[date.getMonth()]}`;
+
+  const hours = date.getHours().toString().padStart(2, "0");
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  const formattedTime = `${hours}:${minutes}`;
+
   gsap.registerPlugin(ScrollToPlugin);
   const scrollRef = useRef(null);
 
@@ -35,8 +58,7 @@ export default function HeaderSliderElement(props) {
         <div className="smallinfo">
           <p className="koncept">{props.koncept}</p>
           <div>
-            <p className="date">10. maj</p>
-            <p className="time">{props.time}</p>
+            <p className="date">{formattedDate}</p>
           </div>
           <p className="place">{props.place}</p>
         </div>

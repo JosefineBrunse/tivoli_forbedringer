@@ -5,6 +5,7 @@ import styles from "../styles/program.css";
 import ArtistCard from "./ArtistCard";
 
 import localFont from "next/font/local";
+
 import FilterBtn from "./FilterBtn";
 import SecondaryBtn from "./SecondaryBtn";
 import { useState, useEffect } from "react";
@@ -290,11 +291,7 @@ export default function ProgramComponent({
         </div>
       ) : (
         <div className="artistlist">
-          <Quizcard />
-
           {Object.keys(groupedByMonth).map((month, index) => {
-            // Check if MonthFilter is set and if the current month matches the filter
-            // Check if MonthFilter is set and if the current month matches the filter
             const filteredMonth = monthFilter
               ? monthFilter.toLowerCase().trim().substring(0, 3)
               : null;
@@ -302,11 +299,10 @@ export default function ProgramComponent({
             if (filteredMonth && currentMonth !== filteredMonth) {
               return null;
             }
-            return (
-              <div key={index} className="month">
-                <h3 className="monthh3">{month}</h3>
-                <div className="posterlist">
-                  {groupedByMonth[month].map((artist) => (
+            const artists = groupedByMonth[month].map((artist, artistIndex) => {
+              if (index === 0 && artistIndex === 1) {
+                return (
+                  <>
                     <ArtistCard
                       key={artist.slug}
                       tag={artist.koncept}
@@ -319,8 +315,29 @@ export default function ProgramComponent({
                       img={artist.img}
                       id={artist.id}
                     />
-                  ))}
-                </div>
+                    <Quizcard />
+                  </>
+                );
+              }
+              return (
+                <ArtistCard
+                  key={artist.slug}
+                  tag={artist.koncept}
+                  name={artist.name}
+                  shortDescription={artist.shortDescription}
+                  time={artist.from}
+                  place={artist.place}
+                  slug={artist.slug}
+                  fleretider={artist.fleretider}
+                  img={artist.img}
+                  id={artist.id}
+                />
+              );
+            });
+            return (
+              <div key={index} className="month">
+                <h3 className="monthh3">{month}</h3>
+                <div className="posterlist">{artists}</div>
               </div>
             );
           })}

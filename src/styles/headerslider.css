@@ -4,7 +4,7 @@
   grid-template-rows: 1fr;
   position: relative;
   margin-bottom: 5rem;
-
+  overflow: hidden;
   @media (width<800px) {
     margin-bottom: 0rem;
   }
@@ -31,7 +31,7 @@
   grid-area: 1/1;
   width: fit-content;
   height: 80dvh;
-
+  transition: 1s ease-in-out;
   display: flex;
   overflow: hidden;
   overflow-x: scroll;

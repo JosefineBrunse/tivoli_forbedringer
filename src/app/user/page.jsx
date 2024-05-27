@@ -9,7 +9,6 @@ import User from "@/components/User";
 export default function Page() {
   return (
     <main className={"loginside"}>
-      {/* <Login /> */}
       <User data={programdata} />
     </main>
   );

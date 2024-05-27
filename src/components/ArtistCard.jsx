@@ -31,36 +31,38 @@ export default function ArtistCard(props) {
   const formattedTime = `${hours}:${minutes}`;
 
   return (
-    <Link className="artistcard" href={`/event/` + props.slug}>
-      <div className="imgcontainer">
-        {props.img ? (
-          <img
-            src={
-              "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/" +
-              props.img +
-              ".webp"
-            }
-            alt=""
-          />
-        ) : (
-          <img
-            src={
-              "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/" +
-              props.slug +
-              ".webp"
-            }
-            alt=""
-          />
-        )}
-      </div>
-      <div className="artistcardinfo">
+    <div className="artistcard">
+      <Link href={`/event/` + props.slug}>
+        <div className="imgcontainer">
+          {props.img ? (
+            <img
+              src={
+                "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/" +
+                props.img +
+                ".webp"
+              }
+              alt=""
+            />
+          ) : (
+            <img
+              src={
+                "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/" +
+                props.slug +
+                ".webp"
+              }
+              alt=""
+            />
+          )}
+        </div>
+      </Link>
+      <LikeBtn artistId={props.id}></LikeBtn>
+      <Link className="artistcardinfo" href={`/event/` + props.slug}>
         <div className="flexbetween">
           <div>
             <div className={"tag " + props.tag}>{props.tag}</div>
             <h3>{props.name}</h3>
             <h4 className="shortdescription">{props.shortDescription}</h4>
           </div>
-          <LikeBtn artistId={props.id}></LikeBtn>
         </div>
         <div className="bottom">
           <div className="artistcardinfodetails">
@@ -75,7 +77,7 @@ export default function ArtistCard(props) {
           </div>
           <PrimaryBtn text={"Læs mere"} link={"/event/" + props.slug} />
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }

@@ -3,10 +3,19 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+
   --primary: #fdf8ee;
   --secondary: #1e1e1e;
   --primary-dark: #f1ebdf;
+  --sommerklassisk: #a6a76e;
+  --fredagsrock: #e4001b;
+  --mint: #3d8bd2;
+  --onsdagsjazz: #ee8829;
+  --lørdagsdans: #b6adf4;
+  --syngmedtivoli: #1528d9;
+  --lørdagshits: #e1a7c1;
+  --havefest: #127d10;
+
   scroll-behavior: smooth;
   background-color: var(--primary);
 }

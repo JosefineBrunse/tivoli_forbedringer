@@ -29,44 +29,45 @@
     padding: 1rem;
     border-top: 1px solid var(--secondary);
     color: var(--secondary);
+
     &.OnsdagsJazz {
       & h3 {
-        color: #ee8829;
+        color: var(--onsdagsjazz);
       }
     }
     &.SommerKlassisk {
       & h3 {
-        color: #a6a76e;
+        color: var(--sommerklassisk);
       }
     }
     &.Fredagsrock {
       & h3 {
-        color: #e4001b;
+        color: var(--fredagsrock);
       }
     }
     &.Mint {
       & h3 {
-        color: #3d8bd2;
+        color: var(--mint);
       }
     }
     &.Havefest {
       & h3 {
-        color: #127d10;
+        color: var(--havefest);
       }
     }
     &.LørdagsDans {
       & h3 {
-        color: #b6adf4;
+        color: var(--lørdagsdans);
       }
     }
     &.Syng {
       & h3 {
-        color: #1528d9;
+        color: var(--syngmedtivoli);
       }
     }
     &.LørdagsHits {
       & h3 {
-        color: #e1a7c1;
+        color: var(--lørdagshits);
       }
     }
   }

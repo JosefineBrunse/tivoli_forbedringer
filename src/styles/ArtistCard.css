@@ -5,6 +5,30 @@
   display: grid;
   grid-template-columns: 400px 4fr;
   overflow: hidden;
+  position: relative;
+  & .likeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    width: fit-content;
+    padding: 1rem;
+    z-index: 1;
+    right: 0;
+    top: 0;
+
+    & svg {
+      stroke: var(--fredagsrock);
+      stroke-width: 2px;
+      fill: var(--primary);
+      transition: 0.2s ease-in;
+
+      &.active {
+        fill: var(--fredagsrock);
+        transition: 0.2s ease-in;
+      }
+    }
+  }
 
   @media (width < 800px) {
     grid-template-columns: 1fr;
@@ -12,6 +36,7 @@
     height: fit-content;
     & .artistcardinfo {
       gap: 5rem;
+      position: relative;
     }
     & .bottom {
       flex-direction: column;
@@ -23,23 +48,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-
-    & .likeBtn {
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    & svg {
-      stroke: var(--secondary);
-      stroke-width: 2px;
-      fill: var(--primary);
-      transition: 0.2s ease-in;
-
-      &.active {
-        fill: var(--secondary);
-        transition: 0.2s ease-in;
-      }
-    }
+    position: relative;
   }
 
   & .imgcontainer {
@@ -101,30 +110,30 @@
   font-weight: 500;
 
   &.Sommerklassisk {
-    background-color: #a6a76e;
+    background-color: var(--sommerklassisk);
   }
   &.Fredagsrock {
-    background-color: #e4001b;
+    background-color: var(--fredagsrock);
   }
   &.Mint {
-    background-color: #3d8bd2;
+    background-color: var(--mint);
   }
   &.OnsdagsJazz,
   &.Onsdagsjazz {
-    background-color: #ee8829;
+    background-color: var(--onsdagsjazz);
   }
   &.Lørdagsdans,
   &.LoerdagsDans {
-    background-color: #b6adf4;
+    background-color: var(--lørdagsdans);
   }
   &.Syngmeditivoli {
-    background-color: #1528d9;
+    background-color: var(--syngmedtivoli);
   }
   &.Lørdagshits {
-    background-color: #e1a7c1;
+    background-color: var(-lørdagshits);
   }
   &.Havefest {
-    background-color: #127d10;
+    background-color: var(--havefest);
   }
 }
 
@@ -145,33 +154,30 @@
       color: var(--primary);
     }
     &.Sommerklassisk {
-      background-color: #a6a76e;
-    }
-    &.Sommerklassisk {
-      background-color: #a6a76e;
+      background-color: var(--sommerklassisk);
     }
     &.Fredagsrock {
-      background-color: #e4001b;
+      background-color: var(--fredagsrock);
     }
     &.Mint {
-      background-color: #3d8bd2;
+      background-color: var(--mint);
     }
     &.OnsdagsJazz,
     &.Onsdagsjazz {
-      background-color: #ee8829;
+      background-color: var(--onsdagsjazz);
     }
     &.Lørdagsdans,
     &.LoerdagsDans {
-      background-color: #b6adf4;
+      background-color: var(--lørdagsdans);
     }
     &.Syngmeditivoli {
-      background-color: #1528d9;
+      background-color: var(--syngmedtivoli);
     }
     &.Lørdagshits {
-      background-color: #e1a7c1;
+      background-color: var(-lørdagshits);
     }
     &.Havefest {
-      background-color: #127d10;
+      background-color: var(--havefest);
     }
   }
 
@@ -197,33 +203,30 @@
     align-items: center;
 
     &.Sommerklassisk {
-      background-color: #a6a76e;
-    }
-    &.Sommerklassisk {
-      background-color: #a6a76e;
+      background-color: var(--sommerklassisk);
     }
     &.Fredagsrock {
-      background-color: #e4001b;
+      background-color: var(--fredagsrock);
     }
     &.Mint {
-      background-color: #3d8bd2;
+      background-color: var(--mint);
     }
     &.OnsdagsJazz,
     &.Onsdagsjazz {
-      background-color: #ee8829;
+      background-color: var(--onsdagsjazz);
     }
     &.Lørdagsdans,
     &.LoerdagsDans {
-      background-color: #b6adf4;
+      background-color: var(--lørdagsdans);
     }
     &.Syngmeditivoli {
-      background-color: #1528d9;
+      background-color: var(--syngmedtivoli);
     }
     &.Lørdagshits {
-      background-color: #e1a7c1;
+      background-color: var(-lørdagshits);
     }
     &.Havefest {
-      background-color: #127d10;
+      background-color: var(--havefest);
     }
   }
 }
@@ -247,23 +250,34 @@
   }
   .harlekenleft {
     position: absolute;
-    scale: 0.6;
-    left: -6%;
-    bottom: -21%;
+    left: 0;
+    bottom: 0;
+    scale: 1.5;
     transform: rotate(180deg);
+    @media (width<800px) {
+      scale: 0.8;
+      left: -5rem;
+      bottom: -5rem;
+    }
 
     & path {
-      stroke: #e70013;
+      stroke: var(--fredagsrock);
     }
   }
   .harlekenright {
     position: absolute;
 
-    right: -6%;
-    top: -21%;
-    scale: 0.6;
+    right: 0;
+    top: 0;
+    scale: 1.5;
+
+    @media (width<800px) {
+      scale: 0.8;
+      right: -5rem;
+      top: -5rem;
+    }
     & path {
-      stroke: #e70013;
+      stroke: var(--fredagsrock);
     }
   }
 }

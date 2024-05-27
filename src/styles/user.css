@@ -1,5 +1,26 @@
 .myuser {
-  padding: 2rem;
+  & .welcome {
+    height: 60dvh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    & div:first-child {
+      margin-left: 2rem;
+    }
+    & .harleken {
+      scale: 2;
+      right: 2rem;
+      top: 2rem;
+      position: absolute;
+      z-index: 1;
+
+      path {
+        stroke: var(--fredagsrock);
+      }
+    }
+  }
 
   & .flex {
     display: flex;

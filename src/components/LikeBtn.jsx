@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import styles from "../styles/SecondaryBtn.module.css";
+import styles from "../styles/Likebtn.css";
 import { UserContext, SetUserContext } from "./MyContexts";
 import { useState, useContext, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
@@ -81,7 +81,7 @@ export default function LikeBtn({ artistId }) {
         lists.splice(objWithNameIndex, 1);
         localStorage.setItem("liked", JSON.stringify(lists));
       } else {
-        lists.push({ name: props.name });
+        lists.push({ id: artistId });
         localStorage.setItem("liked", JSON.stringify(lists));
       }
     } else {
