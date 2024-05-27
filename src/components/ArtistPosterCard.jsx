@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/ArtistCard.css";
 import SecondaryBtn from "./SecondaryBtn";
 import LikeBtn from "./LikeBtn";
+import Link from "next/link";
 export default function ArtistPosterCard(props) {
   const date = new Date(props.time);
 
@@ -10,13 +11,13 @@ export default function ArtistPosterCard(props) {
   const formattedDate = date.toLocaleDateString("en-GB", options);
 
   return (
-    <a
-      href={"event/" + props.slug}
+    <Link
+      href={"/event/" + props.slug}
       className={"artistcard poster " + props.tag}
     >
       <h3>{props.name}</h3>
 
       <p className={"time " + props.tag}>{formattedDate}</p>
-    </a>
+    </Link>
   );
 }

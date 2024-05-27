@@ -31,7 +31,7 @@ export default function ArtistCard(props) {
   const formattedTime = `${hours}:${minutes}`;
 
   return (
-    <Link className="artistcard" href={`event/` + props.slug}>
+    <Link className="artistcard" href={`/event/` + props.slug}>
       <div className="imgcontainer">
         {props.img ? (
           <img
