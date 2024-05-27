@@ -1,0 +1,11 @@
+.loadingscreen {
+  width: 100dvw;
+  height: 100dvh;
+  position: absolute;
+  z-index: 1000000;
+  background-color: var(--secondary);
+  top: 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}

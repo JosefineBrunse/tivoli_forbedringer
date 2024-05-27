@@ -1,0 +1,11 @@
+.aboutside {
+  padding-top: 2rem;
+  & .thing {
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+
+    & p {
+      margin-top: 1rem;
+    }
+  }
+}
