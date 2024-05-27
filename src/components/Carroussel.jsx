@@ -42,15 +42,17 @@ export default function Carroussel({ slug, children, title }) {
 
       <div className="outercontainer">
         <div className="innercontainer">
-          {imgs.map((img) => (
-            <div className="imgcontainer">
-              <img
-                src={`https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/koncept/img/${slug}/stemning/${img.name}`}
-                alt=""
-              />
-              ;
-            </div>
-          ))}
+          {imgs
+            ? imgs.map((img) => (
+                <div className="imgcontainer">
+                  <img
+                    src={`https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/koncept/img/${slug}/stemning/${img.name}`}
+                    alt=""
+                  />
+                  ;
+                </div>
+              ))
+            : children}
         </div>
       </div>
     </section>

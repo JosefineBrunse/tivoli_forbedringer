@@ -74,6 +74,26 @@ export default function Home() {
           : null}
       </ProductShelf>
 
+      <TwoCol>
+        <img
+          src="https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/koncept/img/fredagsrock/head.webp"
+          alt=""
+        />
+        <List>
+          <h2 className={`${myFont.className}`}>Hvad er Tivoli genllyd?</h2>
+          <p>
+            Tivoli genlyd er stedet der samler alle tivolis musikkoncepter et
+            sted, for at gøre det nemmere for dig at finde rundt i så du
+            udelukkende kan koncentrere dig om hvad du har lyst til opleve, med
+            hvem og hvornår!
+          </p>
+          <div className="flex">
+            <PrimaryBtn text={"læs mere"} link={"/about"} />
+            <PrimaryBtn text={"Se programmet"} link={"/about"} fill={true} />
+          </div>
+        </List>
+      </TwoCol>
+
       <ProgramComponent headline={"Program"} data={data} />
     </main>
   );

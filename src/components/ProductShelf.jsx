@@ -10,7 +10,9 @@ export default function ProductShelf({ children, headline, text }) {
     <section className="productshelf">
       <h2 className={`${myFont.className}`}>{headline}</h2>
       <p>{text}</p>
-      <div className="grid">{children}</div>
+      <div className="outer">
+        <div className="grid">{children}</div>
+      </div>
     </section>
   );
 }

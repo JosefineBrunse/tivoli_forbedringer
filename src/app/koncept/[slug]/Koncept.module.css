@@ -18,6 +18,10 @@
   align-items: center;
   overflow: hidden;
 
+  & .konceptdescription {
+    margin-right: 2rem;
+  }
+
   & .info {
     z-index: 2;
     margin-left: 2rem;
@@ -42,6 +46,7 @@
   & img {
     object-fit: cover;
     width: 100%;
+    height: 100%;
     align-self: center;
   }
 }
@@ -50,5 +55,5 @@
   width: 100%;
   height: 100%;
   background-color: var(--secondary);
-  opacity: 0.4;
+  opacity: 0.6;
 }

@@ -5,6 +5,10 @@
   position: relative;
   margin-bottom: 5rem;
 
+  @media (width<800px) {
+    margin-bottom: 0rem;
+  }
+
   & .scrolllogoelement {
     position: absolute;
     z-index: 11;

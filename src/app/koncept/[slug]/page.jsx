@@ -34,7 +34,9 @@ export default function page({ params }) {
           <h1 className={`${myFont.className} ${styles.konceptheadline}`}>
             {dettekoncept.name}
           </h1>
-          <p>{dettekoncept.description}</p>
+          <p className={styles.konceptdescription}>
+            {dettekoncept.description}
+          </p>
         </div>
         <div className={styles.overlay}></div>
         <div className={styles.videocontainer}>
