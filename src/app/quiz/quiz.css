@@ -1,0 +1,22 @@
+.quizside {
+  padding-top: 2rem;
+  min-height: 95dvh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  gap: 2rem;
+  & h1 {
+    margin-left: 2rem;
+    text-align: center;
+
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    line-height: clamp(1.5rem, 5vw, 3rem);
+    color: var(--secondary);
+  }
+}
