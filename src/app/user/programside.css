@@ -1,0 +1,6 @@
+.programside {
+  padding-top: 2rem;
+  & h1 {
+    margin-left: 2rem;
+  }
+}
