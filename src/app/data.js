@@ -14,10 +14,16 @@ let response = await fetch("https://dmyzwmcuzrezoxseqnfh.supabase.co/rest/v1/tiv
 });
 
 
+const now = new Date();
+  const filteredData = (await response.json()).filter(item => new Date(item.from) >= now);
+  
+  // Sort the filtered data by the from date
+  filteredData.sort((a, b) => new Date(a.from) - new Date(b.from));
+
 let responseKoncepter = await fetch("https://dmyzwmcuzrezoxseqnfh.supabase.co/rest/v1/Koncepter", {
   method: "GET",
   headers: headersList,
 });
 
-export const programdata = await response.json();
+export const programdata = filteredData
 export const konceptdata = await responseKoncepter.json();

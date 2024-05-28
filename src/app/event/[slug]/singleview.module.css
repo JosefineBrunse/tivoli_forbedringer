@@ -45,6 +45,9 @@
       width: 100%;
       gap: 1rem;
       max-width: 70dvw;
+      & p {
+        color: var(--primary);
+      }
       & div {
         display: flex;
         gap: 0.5rem;

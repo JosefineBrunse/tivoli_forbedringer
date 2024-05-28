@@ -20,6 +20,8 @@
 
   & .konceptdescription {
     margin-right: 2rem;
+
+    color: var(--primary);
   }
 
   & .info {
