@@ -1,5 +1,5 @@
 .signup {
-  height: 400px;
+  min-height: 400px;
   padding: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -8,6 +8,10 @@
   background-color: var(--secondary);
   margin-bottom: 2rem;
   margin-top: 2rem;
+
+  @media (width<800px) {
+    display: block;
+  }
 
   & > * {
     padding: 2rem;
@@ -60,6 +64,17 @@
         background-color: var(--secondary);
         color: var(--primary);
       }
+    }
+  }
+
+  @media (width<800px) {
+    display: block;
+    & > * {
+      padding: 1rem;
+    }
+    & .signupform {
+      justify-content: space-between;
+      flex-direction: column;
     }
   }
 }

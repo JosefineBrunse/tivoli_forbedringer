@@ -38,7 +38,7 @@
     height: fit-content;
     padding-block: 2rem;
     transform-origin: bottom;
-    bottom: -40%;
+    bottom: -100%;
     width: 100%;
     background-color: var(--primary);
     border: 1px solid var(--secondary);
