@@ -71,8 +71,14 @@
       gap: 1rem;
       margin-top: 0.4rem;
     }
-    & input[type="text"],
-    & input[type="password"],
+    & input[type="text"] {
+      padding: 0.5rem 0.5rem;
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid var(--secondary);
+      margin-top: 0.4rem;
+      width: 100%;
+    }
     & input[type="tel"] {
       padding: 0.5rem 0.5rem;
       width: 100%;
@@ -81,6 +87,16 @@
       margin-top: 0.4rem;
       width: 100%;
     }
+
+    & input[type="password"] {
+      padding: 0.5rem 0.5rem;
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid var(--secondary);
+      margin-top: 0.4rem;
+      width: 100%;
+    }
+
     & input[type="submit"] {
       padding: 0.5rem 1.5rem;
       margin-top: 2rem;
@@ -112,7 +128,16 @@
       padding-top: 2rem;
       border-top: 1px solid var(--secondary);
     }
+
+    & .flip-login-checkout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--secondary);
+    }
   }
+
   & label:has(input[type="checkbox"]) {
     width: fit-content;
     cursor: pointer;

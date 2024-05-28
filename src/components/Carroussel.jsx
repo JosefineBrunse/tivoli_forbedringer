@@ -8,14 +8,13 @@ import localFont from "next/font/local";
 const myFont = localFont({
   src: "/../../public/typografi/DomaineDisplayWeb-Black.woff2",
 });
-export default function Carroussel({ slug, children, title }) {
+export default function Carroussel({ slug, children, title, dynamic }) {
   const supabase = createClient(
     "https://dmyzwmcuzrezoxseqnfh.supabase.co",
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRteXp3bWN1enJlem94c2VxbmZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTUxNTQwNDEsImV4cCI6MjAzMDczMDA0MX0.06Kfzk5wNrKaHSlpo9UNSjGdDDRTJi5nnO1rukULO3E"
   );
 
   const [imgs, setimgs] = useState([]);
-
   const folderpath = `img/${slug}/stemning`;
   console.log("PATH", folderpath);
 
@@ -42,7 +41,7 @@ export default function Carroussel({ slug, children, title }) {
 
       <div className="outercontainer">
         <div className="innercontainer">
-          {imgs.length > 0
+          {dynamic
             ? imgs.map((img) => (
                 <div className="imgcontainer">
                   <img

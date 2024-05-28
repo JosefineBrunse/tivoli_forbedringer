@@ -31,5 +31,12 @@
       object-fit: cover;
       max-width: 80dvw;
     }
+    & img {
+      scroll-snap-align: start;
+      scroll-margin-inline: 1rem;
+      height: 100%;
+      object-fit: cover;
+      max-width: 80dvw;
+    }
   }
 }

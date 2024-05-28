@@ -326,7 +326,7 @@ export default function ProgramComponent({
               return null;
             }
             const artists = groupedByMonth[month].map((artist, artistIndex) => {
-              if (index === 0 && artistIndex === 1) {
+              if (index === 0 && artistIndex === 1 && !quizfilters) {
                 return (
                   <>
                     <ArtistCard

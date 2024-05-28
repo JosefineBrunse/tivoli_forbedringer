@@ -58,6 +58,7 @@ export default function page({ params }) {
 
       {dettekoncept.stemning ? (
         <Carroussel
+          dynamic={true}
           title={`Få ${dettekoncept.name} følelsen`}
           slug={dettekoncept.slug}
         ></Carroussel>
