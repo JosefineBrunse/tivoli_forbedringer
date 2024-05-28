@@ -30,6 +30,7 @@
     padding: 1rem;
     border-top: 1px solid var(--secondary);
     color: var(--secondary);
+    margin-top: 0;
 
     &.OnsdagsJazz {
       & h3 {
@@ -81,6 +82,7 @@
     position: relative;
     overflow: hidden;
     width: 100%;
+    height: 100%;
 
     & .imgoverlay {
       width: 100%;
