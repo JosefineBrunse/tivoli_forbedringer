@@ -83,7 +83,7 @@ export default function Home() {
           : null}
       </ProductShelf>
 
-      <GetCard />
+      <GetCard order={true} />
 
       <div className={styles.spacer}></div>
       <ProgramComponent headline={"Program"} data={data} />

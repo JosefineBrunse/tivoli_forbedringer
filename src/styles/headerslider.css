@@ -124,13 +124,16 @@
     align-items: center;
     color: var(--primary);
 
-    & p {
-      color: var(--primary);
-    }
-
     & h2 {
       margin-bottom: 1rem;
       color: var(--primary);
+      max-width: 60dvw;
+      position: relative;
+
+      overflow: hidden;
+      & span {
+        position: relative;
+      }
     }
 
     & .smallinfo {
@@ -139,6 +142,9 @@
       text-transform: uppercase;
       font-size: 0.8rem;
       width: 100%;
+      & p {
+        color: var(--primary);
+      }
       & div {
         margin-inline: 5rem;
         display: flex;

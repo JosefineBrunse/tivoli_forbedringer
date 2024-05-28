@@ -23,6 +23,20 @@ export async function generateStaticParams() {
   return paths;
 }
 
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+  const selectedBand = programdata.find((band) => band.slug === slug);
+  return {
+    title: selectedBand.name,
+    description: selectedBand.bio,
+    image:
+      "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/" +
+      selectedBand.img
+        ? selectedBand.img
+        : selectedBand.slug,
+  };
+}
+
 export default function page({ params }) {
   const { slug } = params;
   const event = programdata.find((thing) => thing.slug === slug);

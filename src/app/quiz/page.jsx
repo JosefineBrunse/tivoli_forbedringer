@@ -10,6 +10,13 @@ const myFont = localFont({
   src: "../../../public/typografi/DomaineDisplayWeb-Black.woff2",
 });
 
+export const metadata = {
+  title: "Tivoli genlyd Quiz",
+  description:
+    "Lad os hjælpe dig med at finde de bedste musikalske arrangementer til din sommer!",
+  type: "website",
+};
+
 export default function Page() {
   return (
     <main className="quizside">

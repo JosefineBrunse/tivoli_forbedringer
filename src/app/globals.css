@@ -59,7 +59,7 @@ h3 {
   font-weight: 600;
   text-transform: uppercase;
   font-size: clamp(1.5rem, 3vw, 4rem);
-  line-height: clamp(1.5rem, 5vw, 4rem);
+  line-height: clamp(1.5rem, 3vw, 4rem);
   color: var(--secondary);
 }
 

@@ -8,10 +8,10 @@ const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
 });
 
-export default function GetCard() {
+export default function GetCard({ order }) {
   return (
     <TwoCol>
-      <div className={styles.imgcontainer}>
+      <div className={styles.imgcontainer} style={{ order: order ? 1 : null }}>
         <img className={styles.kortet} src="kortet.svg" alt="" />
         <div className={styles.overlay}></div>
         <img

@@ -7,10 +7,20 @@ import TwoCol from "@/components/TwoCol";
 import AccordionContainer from "@/components/AccordionContainer";
 import localFont from "next/font/local";
 import SignUp from "@/components/signup";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import GetCard from "@/components/GetCard";
 
 const myFont = localFont({
   src: "../../../public/typografi/DomaineDisplayWeb-Black.woff2",
 });
+
+export const metadata = {
+  title: "Om Tivoli Genlyd",
+  description:
+    "Tivoli genlyd er stedet der samler alle tivolis musikkoncepter et sted, for at gøre det nemmere for dig at finde rundt i så du udelukkende kan koncentrere dig om hvad du har lyst til opleve, med hvem og hvornår!",
+  type: "website",
+};
 
 export default function Page() {
   return (
@@ -51,6 +61,9 @@ export default function Page() {
           ]}
         ></AccordionContainer>
       </TwoCol>
+      <div className="breaker"></div>
+      <GetCard order={true} />
+      <div className="breaker"></div>
       <SignUp />
     </main>
   );

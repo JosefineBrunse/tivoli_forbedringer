@@ -14,6 +14,19 @@ const koncept = konceptdata;
 console.log(konceptdata);
 const program = programdata;
 
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+  const selectedKoncept = konceptdata.find((koncept) => koncept.slug === slug);
+  return {
+    title: selectedKoncept.name,
+    description: selectedKoncept.bio,
+    image:
+      "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/koncept/img/" +
+      selectedKoncept.slug +
+      "/head.webp",
+  };
+}
+
 export async function generateStaticParams() {
   const paths = konceptdata.map((thing) => {
     if (thing.slug) {
