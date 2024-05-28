@@ -18,6 +18,8 @@ const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
 });
 export default function ProgramComponent({
+  quiz,
+  quizfilters,
   headline,
   data,
   filter,
@@ -33,6 +35,23 @@ export default function ProgramComponent({
   const [togglefilters, setToggleFilters] = useState(false);
   const [monthOptions, setMonthOptions] = useState([]);
   const [likedartist, setlikedartists] = useState();
+
+  useEffect(() => {
+    if (quizfilters) {
+      if (quizfilters.genre) {
+        setGenreFilter(quizfilters.genre);
+      }
+      if (quizfilters.month && !(quizfilters.month === "all")) {
+        setMonthFilter(quizfilters.month);
+      }
+      if (quizfilters.stemning) {
+        setStemningFilter(quizfilters.stemning);
+      }
+      if (quizfilters.koncept) {
+        setKonceptFilter(quizfilters.koncept);
+      }
+    }
+  }, [quizfilters]);
 
   useEffect(() => {
     const currentDate = new Date();
@@ -74,7 +93,7 @@ export default function ProgramComponent({
     }
     if (stemningFilter) {
       filteredDataCopy = filteredDataCopy.filter((item) =>
-        item.Stemning.includes(stemningFilter)
+        item.stemning.includes(stemningFilter)
       );
     }
     if (monthFilter) {
@@ -165,6 +184,9 @@ export default function ProgramComponent({
               { value: "Klassisk" },
               { value: "Hiphop" },
               { value: "Dance" },
+              { value: "Funk" },
+              { value: "Dansktop" },
+              { value: "Comedy" },
             ]}
           />
           <FilterBtn
@@ -178,6 +200,7 @@ export default function ProgramComponent({
               { value: "Fællessang" },
               { value: "Høj energi" },
               { value: "Dansefest" },
+              { value: "Store følelser" },
             ]}
           />
 

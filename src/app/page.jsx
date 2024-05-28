@@ -75,10 +75,14 @@ export default function Home() {
       </ProductShelf>
 
       <TwoCol>
-        <img
-          src="https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/koncept/img/fredagsrock/head.webp"
-          alt=""
-        />
+        <div className={styles.imgcontainer}>
+          <img className={styles.kortet} src="kortet.svg" alt="" />
+          <div className={styles.overlay}></div>
+          <img
+            src="https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/koncept/img/fredagsrock/head.webp"
+            alt=""
+          />
+        </div>
         <List>
           <h2 className={`${myFont.className} ${styles.subheadline}`}>
             1 kort - en hel sommer med oplevelser

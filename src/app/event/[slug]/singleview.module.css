@@ -44,6 +44,7 @@
       font-size: 0.8rem;
       width: 100%;
       gap: 1rem;
+      max-width: 70dvw;
       & div {
         display: flex;
         gap: 0.5rem;
@@ -95,8 +96,10 @@
 
 .h1 {
   color: var(--primary);
-  font-size: clamp(2rem, 10vw, 10rem);
-  line-height: clamp(2rem, 10vw, 10rem);
+  font-size: clamp(2rem, 7vw, 10rem);
+  line-height: clamp(2rem, 7vw, 10rem);
+  text-align: center;
+  max-width: 90dvw;
 }
 
 .likebtncontainer {

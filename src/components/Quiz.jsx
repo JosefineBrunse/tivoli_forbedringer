@@ -10,8 +10,9 @@ const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
 });
 import { useState } from "react";
+import ProgramComponent from "./ProgramComponent";
 
-export default function Quiz({ question, answers }) {
+export default function Quiz({ question, answers, data }) {
   const [filters, setFilters] = useState({
     stemning: null,
     genre: null,
@@ -20,6 +21,7 @@ export default function Quiz({ question, answers }) {
 
   const [questionIndex, setQuestionIndex] = useState(0);
   const [quizstart, setQuizStart] = useState(false);
+  const [quizdone, setQuizdone] = useState(false);
   const [overlay, setOverlay] = useState(false);
   const [questions, setQuestions] = useState([
     {
@@ -28,35 +30,72 @@ export default function Quiz({ question, answers }) {
         {
           question: "Fællesang",
           filter: "stemning",
-          value: "dansefest",
+          value: "Fællessang",
         },
         {
           question: "Afslapning",
-          filter: "stemning",
-          value: "dims",
+          filter: "Fællessang",
+          value: "Rolige rytmer",
         },
         {
           question: "dansefest",
           filter: "stemning",
-          value: "dims3",
+          value: "Dansefest",
         },
         {
-          question: "Hygge i parken",
+          question: "Store følelser",
           filter: "stemning",
-          value: "dims4",
+          value: "Store følelser",
+        },
+        {
+          question: "Energisk aften",
+          filter: "stemning",
+          value: "Høj energi",
         },
         {
           question: "Familiehygge",
           filter: "stemning",
-          value: "dims5",
-        },
-        {
-          question: "Kulturel",
-          filter: "stemning",
-          value: "dims6",
+          value: "Glade dage",
         },
       ],
     },
+
+    {
+      question: "Hvilken genre er du til?",
+      answers: [
+        {
+          question: "Pop",
+          filter: "genre",
+          value: "Pop",
+        },
+        {
+          question: "Rock",
+          filter: "genre",
+          value: "Rock",
+        },
+        {
+          question: "Klassisk",
+          filter: "genre",
+          value: "Klassisk",
+        },
+        {
+          question: "Hiphop",
+          filter: "genre",
+          value: "Hiphop",
+        },
+        {
+          question: "Dance",
+          filter: "genre",
+          value: "Dance",
+        },
+        {
+          question: "Funk",
+          filter: "genre",
+          value: "Funk",
+        },
+      ],
+    },
+
     {
       question: "Hvad ønsker du at få ud af din oplevelse?",
       answers: [
@@ -77,6 +116,31 @@ export default function Quiz({ question, answers }) {
         },
       ],
     },
+    {
+      question: "Hvornår vil du opleve noget?",
+      answers: [
+        {
+          question: "Juli",
+          filter: "month",
+          value: "juli",
+        },
+        {
+          question: "August",
+          filter: "month",
+          value: "august",
+        },
+        {
+          question: "September",
+          filter: "month",
+          value: "september",
+        },
+        {
+          question: "Overrask mig",
+          filter: "month",
+          value: "all",
+        },
+      ],
+    },
   ]);
 
   function handleAnswer(filter, value) {
@@ -93,7 +157,7 @@ export default function Quiz({ question, answers }) {
 
   return (
     <>
-      {quizstart ? (
+      {quizstart && !quizdone ? (
         <section className="quiz">
           <div className="top">
             <h2 className="question">{questions[questionIndex].question}</h2>
@@ -139,7 +203,9 @@ export default function Quiz({ question, answers }) {
               className="next"
               onClick={() => {
                 console.log("NEXT");
-                questionIndex < 5 ? setQuestionIndex((old) => old + 1) : null;
+                questionIndex === questions.length - 1
+                  ? setQuizdone(true)
+                  : setQuestionIndex((old) => old + 1);
               }}
             >
               <p>
@@ -152,6 +218,19 @@ export default function Quiz({ question, answers }) {
             </button>
           </div>
         </section>
+      ) : quizdone ? (
+        <>
+          <button className="primary">
+            <p>Gem dit resultat</p>
+            <div className="fill"></div>
+          </button>
+          <ProgramComponent
+            quizfilters={filters}
+            quiz={true}
+            data={data}
+            headline={"Dit personlige program"}
+          />
+        </>
       ) : (
         <section className="startquiz">
           <h1 className={`${myFont.className}`}>

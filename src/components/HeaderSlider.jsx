@@ -20,15 +20,17 @@ export default function HeaderSlider({ data }) {
   const [transform, setTransform] = useState(100 * slideIndex);
 
   useEffect(() => {
-    filterAndSortData(data); // Filter and sort data on initial load
-
-    const intervalId = setInterval(() => {
-      slideIndex === 4 ? setSlideIndex(0) : setSlideIndex((old) => old + 1);
+    const interval = setInterval(() => {
+      if (slideIndex === 4) {
+        setSlideIndex(0);
+      } else {
+        setSlideIndex(slideIndex + 1);
+      }
     }, 5000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
+    return () => clearInterval(interval);
+  }, [slideIndex]);
+  useEffect(() => {
+    filterAndSortData(data); // Filter and sort data on initial load
   }, [data]);
 
   const filterAndSortData = (data) => {
@@ -103,7 +105,7 @@ export default function HeaderSlider({ data }) {
             />
           ))
         ) : (
-          <p>No events found</p>
+          <div></div>
         )}
       </section>
     </div>

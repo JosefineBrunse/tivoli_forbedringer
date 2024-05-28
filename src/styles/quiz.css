@@ -26,24 +26,26 @@
 
   & .question {
     font-size: 2rem;
+    color: var(--primary);
   }
   & .loadercontainer {
     & p {
       text-align: right;
       margin-bottom: 0.2rem;
+      color: var(--primary);
     }
   }
   & .loader {
     width: 200px;
     height: 20px;
     border-radius: 2rem;
-    border: 1px solid var(--secondary);
+    border: 1px solid var(--primary);
     overflow: hidden;
     position: relative;
     & .process {
       transition: 0.5s ease-in-out;
       height: 100%;
-      background-color: var(--secondary);
+      background-color: var(--primary);
       position: absolute;
       left: 0;
     }
@@ -63,14 +65,26 @@
 
 .quizanswer {
   cursor: pointer;
+  position: relative;
   height: 150px;
   width: 100%;
   background-color: var(--secondary);
-  border: none;
-  border-radius: 1.5rem;
+  border: 1px solid var(--primary);
+  border-radius: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+
+  & .fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: -100%;
+    background-color: var(--primary);
+    transition: 0.5s ease-in-out;
+    border-radius: 5rem;
+  }
   &:focus {
     border: none;
     outline: 2px solid red;
@@ -92,60 +106,14 @@
 
   & .next {
     padding: 0.6rem 1.2rem;
-    border: 1px solid var(--secondary);
+    border: 1px solid var(--primary);
     width: fit-content;
     border-radius: 2rem;
     position: relative;
     overflow: hidden;
     transition: 0.5s ease-in-out;
     height: 2.1rem;
-    background-color: var(--secondary);
-    & .fill {
-      height: 100%;
-      position: absolute;
-      background-color: var(--primary);
-      width: 100%;
-      left: 0;
-      border-radius: 100%;
-      top: 100%;
-      transition: 0.5s ease-in-out;
-    }
-    & p {
-      text-transform: uppercase;
-      color: var(--primary);
-      font-size: 0.8rem;
-      line-height: 0.8rem;
-      transition: 0.5s ease-in-out;
-    }
-
-    &:hover {
-      & p {
-        color: var(--secondary);
-        transition: 0.5s ease-in-out;
-        z-index: 1;
-        position: relative;
-      }
-
-      & .fill {
-        border-radius: 0;
-        top: 0;
-        transition: 0.5s ease-in-out;
-        z-index: 0;
-      }
-    }
-  }
-
-  & .back {
-    padding: 0.6rem 1.2rem;
-    border: 1px solid var(--secondary);
-    width: fit-content;
-    border-radius: 2rem;
-    position: relative;
-    overflow: hidden;
-    transition: 0.5s ease-in-out;
-    background-color: transparent;
-    height: 2.1rem;
-
+    background-color: var(--primary);
     & .fill {
       height: 100%;
       position: absolute;
@@ -155,9 +123,6 @@
       border-radius: 100%;
       top: 100%;
       transition: 0.5s ease-in-out;
-      .fill & {
-        background-color: var(--primary);
-      }
     }
     & p {
       text-transform: uppercase;
@@ -183,6 +148,55 @@
       }
     }
   }
+
+  & .back {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--primary);
+    width: fit-content;
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+    background-color: transparent;
+    height: 2.1rem;
+
+    & .fill {
+      height: 100%;
+      position: absolute;
+      background-color: var(--primary);
+      width: 100%;
+      left: 0;
+      border-radius: 100%;
+      top: 100%;
+      transition: 0.5s ease-in-out;
+      .fill & {
+        background-color: var(--secondary);
+      }
+    }
+    & p {
+      text-transform: uppercase;
+      color: var(--primary);
+      font-size: 0.8rem;
+      line-height: 0.8rem;
+      transition: 0.5s ease-in-out;
+    }
+
+    &:hover {
+      & p {
+        color: var(--secondary);
+        transition: 0.5s ease-in-out;
+        z-index: 1;
+        position: relative;
+      }
+
+      & .fill {
+        border-radius: 0;
+        top: 0;
+        transition: 0.5s ease-in-out;
+        z-index: 0;
+      }
+    }
+  }
 }
 
 .startquiz {
@@ -195,7 +209,7 @@
   & .next {
     cursor: pointer;
     padding: 0.6rem 1.2rem;
-    border: 1px solid var(--secondary);
+    border: 1px solid var(--primary);
     width: fit-content;
     border-radius: 2rem;
     position: relative;
@@ -235,6 +249,51 @@
         transition: 0.5s ease-in-out;
         z-index: 0;
       }
+    }
+  }
+}
+.primary {
+  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--secondary);
+  width: fit-content;
+  border-radius: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+  height: 2.1rem;
+  background-color: var(--secondary);
+  & .fill {
+    height: 100%;
+    position: absolute;
+    background-color: var(--primary);
+    width: 100%;
+    left: 0;
+    border-radius: 100%;
+    top: 100%;
+    transition: 0.5s ease-in-out;
+  }
+  & p {
+    text-transform: uppercase;
+    color: var(--primary);
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    transition: 0.5s ease-in-out;
+  }
+
+  &:hover {
+    & p {
+      color: var(--secondary);
+      transition: 0.5s ease-in-out;
+      z-index: 1;
+      position: relative;
+    }
+
+    & .fill {
+      border-radius: 0;
+      top: 0;
+      transition: 0.5s ease-in-out;
+      z-index: 0;
     }
   }
 }

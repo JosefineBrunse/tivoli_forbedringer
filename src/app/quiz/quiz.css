@@ -7,8 +7,14 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+  background-color: var(--secondary);
 
   gap: 2rem;
+
+  &:has(.program) {
+    background-color: var(--primary);
+    width: 100%;
+  }
   & h1 {
     margin-left: 2rem;
     text-align: center;
@@ -17,6 +23,6 @@
     text-transform: uppercase;
     font-size: clamp(1.5rem, 5vw, 3rem);
     line-height: clamp(1.5rem, 5vw, 3rem);
-    color: var(--secondary);
+    color: var(--primary);
   }
 }
