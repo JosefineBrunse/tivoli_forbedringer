@@ -98,3 +98,8 @@ a {
 .fullwidth {
   margin: 1rem;
 }
+
+.breaker {
+  height: 70px;
+  width: 100%;
+}

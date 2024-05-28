@@ -6,7 +6,7 @@
   min-height: 94dvh;
 
   & .user-status {
-    color: red;
+    color: var(--fredagsrock);
   }
 
   & .right {
@@ -141,6 +141,7 @@
   & label:has(input[type="checkbox"]) {
     width: fit-content;
     cursor: pointer;
+    flex-direction: row;
     gap: 0.2rem;
     margin-top: 1rem;
     align-items: center;
