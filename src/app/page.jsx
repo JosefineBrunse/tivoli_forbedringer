@@ -28,6 +28,13 @@ const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
 });
 
+export const metadata = {
+  title: "Tivoli Genlyd",
+  description:
+    "Tivoli genlyd er stedet der samler alle tivolis musikkoncepter et sted, for at gøre det nemmere for dig at finde rundt i så du udelukkende kan koncentrere dig om hvad du har lyst til opleve, med hvem og hvornår!",
+  type: "website",
+};
+
 export default function Home() {
   const data = programdata;
   const koncepter = konceptdata;
