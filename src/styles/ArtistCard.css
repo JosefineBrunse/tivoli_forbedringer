@@ -244,6 +244,10 @@
   flex-direction: column;
   gap: 1rem;
   position: relative;
+
+  @media (width < 800px) {
+    padding: 1rem;
+  }
   & h3 {
     color: var(--primary);
     text-align: center;

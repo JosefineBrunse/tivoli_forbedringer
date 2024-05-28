@@ -23,25 +23,39 @@
   gap: 1rem;
   width: 100%;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
+  z-index: 2;
 
   & .question {
     font-size: 2rem;
+    line-height: 2rem;
+    z-index: 2;
     color: var(--primary);
+    @media (width<800px) {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
   }
   & .loadercontainer {
+    z-index: 12;
+    background-color: var(--secondary);
     & p {
       text-align: right;
       margin-bottom: 0.2rem;
       color: var(--primary);
+      z-index: 2;
+      background-color: var(--secondary);
     }
   }
   & .loader {
+    z-index: 2;
     width: 200px;
     height: 20px;
     border-radius: 2rem;
     border: 1px solid var(--primary);
     overflow: hidden;
     position: relative;
+    background-color: var(--secondary);
     & .process {
       transition: 0.5s ease-in-out;
       height: 100%;
@@ -64,6 +78,7 @@
 }
 
 .quizanswer {
+  z-index: 2;
   cursor: pointer;
   position: relative;
   height: 150px;
@@ -75,6 +90,9 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  @media (width<800px) {
+    height: 100px;
+  }
 
   & .fill {
     position: absolute;
@@ -91,11 +109,15 @@
   }
 
   & h3 {
+    @media (width<800px) {
+      font-size: 1rem;
+    }
     color: var(--primary);
     font-size: 1.5rem;
   }
 }
 .bottom {
+  z-index: 2;
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
@@ -152,12 +174,14 @@
   & .back {
     padding: 0.6rem 1.2rem;
     border: 1px solid var(--primary);
+
+    z-index: 2;
     width: fit-content;
     border-radius: 2rem;
     position: relative;
     overflow: hidden;
     transition: 0.5s ease-in-out;
-    background-color: transparent;
+    background-color: var(--secondary);
     height: 2.1rem;
 
     & .fill {

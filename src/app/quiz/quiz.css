@@ -13,6 +13,10 @@
     position: absolute;
     & svg {
       scale: 3;
+      @media (width < 800px) {
+        scale: 1;
+        opacity: 0.5;
+      }
     }
     & svg path {
       stroke: var(--fredagsrock);
@@ -22,10 +26,18 @@
       transform: rotate(180deg);
       bottom: 0;
       left: 0;
+      @media (width < 800px) {
+        bottom: -2rem;
+        left: -2rem;
+      }
     }
     &.right {
       top: 0;
       right: 0;
+      @media (width < 800px) {
+        top: -2rem;
+        right: -2rem;
+      }
     }
   }
   gap: 2rem;

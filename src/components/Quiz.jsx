@@ -138,7 +138,7 @@ export default function Quiz({ question, answers, data }) {
           <div className="top">
             <h2 className="question">{questions[questionIndex].question}</h2>
             <div className="loadercontainer">
-              <p>{loaderWidth + "%"}</p>
+              <p>{Math.round(loaderWidth) + "%"}</p>
               <div className="loader">
                 <div
                   className="process"
