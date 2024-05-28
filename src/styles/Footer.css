@@ -5,6 +5,10 @@
   min-height: 300px;
   width: 100%;
   margin-top: auto;
+  overflow: hidden;
+  @media (width<800px) {
+    padding: 2rem;
+  }
 }
 
 .footer-container {
@@ -46,6 +50,7 @@
 
   margin-right: 2rem;
   @media (width<800px) {
+    margin-top: 2rem;
     margin-inline: 0;
   }
 }
@@ -61,16 +66,18 @@
   align-items: flex-end;
   gap: 2rem;
   align-items: flex-start;
-  /* 
+
   @media (width<800px) {
     display: block;
-  } */
+  }
 }
 .footer-socials {
   padding-left: 2rem;
   border-left: 1px solid var(--primary);
   @media (width<800px) {
+    margin-top: 2rem;
     border: 0;
+    padding-left: 0;
   }
 }
 

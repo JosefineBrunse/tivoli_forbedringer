@@ -49,8 +49,8 @@ h1 {
 h2 {
   font-family: "neue-haas-grotesk-display", sans-serif;
   text-transform: uppercase;
-  font-size: 2rem;
-  line-height: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: clamp(2rem, 5vw, 3rem);
   margin-bottom: 1rem;
   color: var(--secondary);
 }
