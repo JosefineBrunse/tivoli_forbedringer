@@ -17,7 +17,6 @@ export default function RootLayout({ children }) {
     <UserProvider>
       <html lang="en">
         <ReadUserSessionStorge>
-          <Loading></Loading>
           <div className="breaker"></div>
           <Navbar koncepter={konceptdata} />
           {children}
