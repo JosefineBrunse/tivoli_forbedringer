@@ -110,12 +110,12 @@ function Footer({ koncepter }) {
           </ul>
           <ul className="footer-nav otherlink">
             <li>
-              <Link className="footer-link" href="/user">
+              <Link className="footer-link headlink" href="/user">
                 Profil
               </Link>
             </li>
             <li>
-              <Link className="footer-link" href="/about">
+              <Link className="footer-link headlink" href="/about">
                 Om Tivoli Genlyd
               </Link>
             </li>

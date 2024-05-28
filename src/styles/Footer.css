@@ -1,9 +1,8 @@
 .footer {
-  border-top: solid 1px var(--white);
   padding: 3rem;
   color: var(--primary);
   background-color: var(--secondary);
-
+  min-height: 300px;
   width: 100%;
   margin-top: auto;
 }
@@ -12,22 +11,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 300px;
 
   @media (width<800px) {
     display: block;
   }
 }
 
-.koncepts {
-  border-right: 1px solid var(--primary);
-  @media (width<800px) {
-    border: 0;
-  }
-}
 .koncepts .konceptflexshelf {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin-right: 2rem;
+
   gap: 1rem;
   row-gap: 0.5rem;
 
@@ -47,9 +41,10 @@
 }
 
 .otherlink {
-  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+
   margin-right: 2rem;
-  margin-top: 1.6rem;
   @media (width<800px) {
     margin-inline: 0;
   }
@@ -72,8 +67,13 @@
   } */
 }
 .footer-socials {
-  margin-top: 1.6rem;
+  padding-left: 2rem;
+  border-left: 1px solid var(--primary);
+  @media (width<800px) {
+    border: 0;
+  }
 }
+
 .footer-socials,
 .footer-nav {
   display: flex;
