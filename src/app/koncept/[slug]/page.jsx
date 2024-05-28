@@ -48,6 +48,8 @@ export default function page({ params }) {
             />
           ) : (
             <video
+              controls
+              controlslist="nofullscreen"
               src={`https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/koncept/video/${dettekoncept.slug}.webm`}
               muted
               loop

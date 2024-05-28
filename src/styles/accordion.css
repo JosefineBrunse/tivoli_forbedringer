@@ -1,7 +1,10 @@
 .accordion {
   background-color: transparent;
   border: none;
-  border-block: 1px solid var(--secondary);
+  border-top: 1px solid var(--secondary);
+  &:last-child {
+    border-bottom: 1px solid var(--secondary);
+  }
   height: fit-content;
 
   padding: 1rem;
@@ -24,8 +27,8 @@
     }
 
     & h3 {
-      font-size: 1.5rem;
-      line-height: 1.5rem;
+      font-size: 1rem;
+      line-height: 1rem;
     }
   }
 }
@@ -57,13 +60,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (width<800px) {
+    padding: 1rem;
+  }
 }
 
 .accshelfheadline {
   margin-bottom: 2rem;
-
-  & h2 {
-    font-size: 3rem;
-    line-height: 3.5rem;
-  }
 }

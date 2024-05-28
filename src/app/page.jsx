@@ -41,7 +41,13 @@ export default function Home() {
 
       <TwoCol>
         <div className="imgcontainer">
-          <video muted autoPlay loop src="genlyd_identitet.mp4"></video>
+          <video
+            controls={false}
+            muted
+            autoPlay
+            loop
+            src="genlyd_identitet.mp4"
+          ></video>
         </div>
         {/* <AccordionContainer /> */}
         <List>

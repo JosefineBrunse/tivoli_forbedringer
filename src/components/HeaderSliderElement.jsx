@@ -34,19 +34,8 @@ export default function HeaderSliderElement(props) {
   const minutes = date.getMinutes().toString().padStart(2, "0");
   const formattedTime = `${hours}:${minutes}`;
 
-  gsap.registerPlugin(ScrollToPlugin);
-  const scrollRef = useRef(null);
-
-  function scrollforward() {
-    console.log("SCROLL");
-    gsap.to(scrollRef, {
-      ScrollToPlugin: "-100vw",
-    });
-  }
-
   return (
     <div
-      ref={scrollRef}
       className="headersliderelement"
       style={{
         backgroundImage: `url(https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/${
@@ -62,10 +51,7 @@ export default function HeaderSliderElement(props) {
           </div>
           <p className="place">{props.place}</p>
         </div>
-        <h2
-          className={`${myFont.className} ${"headline"}`}
-          onClick={scrollforward}
-        >
+        <h2 className={`${myFont.className} ${"headline"}`}>
           {props.headline}
         </h2>
 

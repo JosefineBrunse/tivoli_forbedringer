@@ -89,7 +89,7 @@ export default function HeaderSlider({ data }) {
         className="headerslider"
         ref={proxyRef}
         style={{
-          right: `${slideIndex * 100}%`,
+          right: `${slideIndex * 100}dvw`,
         }}
       >
         {filteredData.length > 0 ? (
