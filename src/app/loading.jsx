@@ -5,12 +5,12 @@ import styles from "@/styles/loader.css";
 
 const isFirstVisit = () => {
   // Check if a specific key exists in local storage
-  return localStorage.getItem("visited") === null;
+  return sessionStorage.getItem("visited") === null;
 };
 
 const markAsVisited = () => {
   // Set the specific key in local storage to mark the page as visited
-  localStorage.setItem("visited", "true");
+  sessionStorage.setItem("visited", "true");
 };
 
 export default function Loading() {
