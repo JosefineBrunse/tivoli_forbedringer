@@ -24,6 +24,10 @@
     width: 100%;
     display: block;
 
+    & > *:first-child {
+      order: -1;
+    }
+
     & .imgcontainer {
       height: 400px;
     }

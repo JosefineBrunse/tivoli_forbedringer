@@ -122,9 +122,15 @@
     margin-inline: auto;
     text-align: center;
     align-items: center;
+    color: var(--primary);
+
+    & p {
+      color: var(--primary);
+    }
 
     & h2 {
       margin-bottom: 1rem;
+      color: var(--primary);
     }
 
     & .smallinfo {
