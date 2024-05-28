@@ -42,7 +42,7 @@ export default function Carroussel({ slug, children, title }) {
 
       <div className="outercontainer">
         <div className="innercontainer">
-          {imgs
+          {imgs.length > 0
             ? imgs.map((img) => (
                 <div className="imgcontainer">
                   <img

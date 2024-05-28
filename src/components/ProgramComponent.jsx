@@ -41,8 +41,11 @@ export default function ProgramComponent({
       if (quizfilters.genre) {
         setGenreFilter(quizfilters.genre);
       }
-      if (quizfilters.month && !(quizfilters.month === "all")) {
-        setMonthFilter(quizfilters.month);
+      if (quizfilters.month) {
+        if (quizfilters === "all") {
+        } else {
+          setMonthFilter(quizfilters.month);
+        }
       }
       if (quizfilters.stemning) {
         setStemningFilter(quizfilters.stemning);

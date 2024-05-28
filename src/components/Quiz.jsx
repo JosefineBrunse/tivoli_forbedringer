@@ -122,17 +122,17 @@ export default function Quiz({ question, answers, data }) {
         {
           question: "Juli",
           filter: "month",
-          value: "juli",
+          value: "Juli",
         },
         {
           question: "August",
           filter: "month",
-          value: "august",
+          value: "August",
         },
         {
           question: "September",
           filter: "month",
-          value: "september",
+          value: "September",
         },
         {
           question: "Overrask mig",
@@ -220,15 +220,15 @@ export default function Quiz({ question, answers, data }) {
         </section>
       ) : quizdone ? (
         <>
-          <button className="primary">
+          {/* <button className="primary">
             <p>Gem dit resultat</p>
             <div className="fill"></div>
-          </button>
+          </button> */}
           <ProgramComponent
             quizfilters={filters}
             quiz={true}
             data={data}
-            headline={"Dit personlige program"}
+            headline={"Vi anbefaler"}
           />
         </>
       ) : (

@@ -9,11 +9,34 @@
   overflow: hidden;
   background-color: var(--secondary);
 
+  & .harleken {
+    position: absolute;
+    & svg {
+      scale: 3;
+    }
+    & svg path {
+      stroke: var(--fredagsrock);
+    }
+
+    &.left {
+      transform: rotate(180deg);
+      bottom: 0;
+      left: 0;
+    }
+    &.right {
+      top: 0;
+      right: 0;
+    }
+  }
   gap: 2rem;
 
   &:has(.program) {
     background-color: var(--primary);
     width: 100%;
+
+    & .harleken {
+      display: none;
+    }
   }
   & h1 {
     margin-left: 2rem;

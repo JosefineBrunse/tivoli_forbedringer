@@ -12,7 +12,7 @@ export default function KonceptCard({ imgsrc, headline, text, btnlink }) {
       </div>
       <div className={"bottom " + headline}>
         <div>
-          <h3>{headline}</h3>
+          <h3 className="konceptheadline">{headline}</h3>
           <p>{text}</p>
         </div>
 

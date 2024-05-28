@@ -18,6 +18,7 @@
 
 .konceptcard {
   height: 400px;
+  min-width: 300px;
   border: 1px solid var(--secondary);
   display: grid;
   grid-template-rows: 2fr 150px;
@@ -74,6 +75,7 @@
   & h3 {
     font-size: 1.3rem;
     line-height: 1.4rem;
+    margin: 0;
   }
   & .imgcontainer {
     position: relative;

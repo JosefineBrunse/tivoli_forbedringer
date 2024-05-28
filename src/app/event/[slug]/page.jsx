@@ -6,6 +6,8 @@ import SpotifyEmbed from "@/components/SpotifyEmbed";
 import Carroussel from "@/components/Carroussel";
 import DescriptionComponent from "@/components/Description";
 import LikeBtn from "@/components/LikeBtn";
+import ArtistCard from "@/components/ArtistCard";
+import KonceptCard from "@/components/KonceptCard";
 
 const myFont = localFont({
   src: "../../../../public/typografi/DomaineDisplayWeb-Black.woff2",
@@ -48,6 +50,13 @@ export default function page({ params }) {
   const minutes = date.getMinutes().toString().padStart(2, "0");
   const formattedTime = `${hours}:${minutes}`;
 
+  const sameStemningEvents = programdata.filter(
+    (item) => item.stemning === event.stemning && item.id !== event.id
+  );
+  const sameKonceptEvents = programdata.filter(
+    (item) => item.koncept === event.koncept && item.id !== event.id
+  );
+
   return (
     <main className={styles.main}>
       <section
@@ -86,14 +95,56 @@ export default function page({ params }) {
             ) : null}
           </div>
         ) : null}
-        <div>
+        <div className={styles.details}>
           <h3 className={`${myFont.className} slugheadline`}>
             {"Om " + event.name}
           </h3>
           <DescriptionComponent description={event.description} />
         </div>
       </div>
-      <div className={styles.headline}></div>
+
+      <div className={styles.more}>
+        {sameStemningEvents ? (
+          <Carroussel title={"Find samme stemning"}>
+            {sameStemningEvents.map((artist, index) => (
+              <KonceptCard
+                headline={artist.name}
+                koncept={artist.koncept}
+                imgsrc={
+                  artist.img
+                    ? "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/" +
+                      artist.img +
+                      ".webp"
+                    : "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/" +
+                      artist.slug +
+                      ".webp"
+                }
+                btnlink={"/event/" + artist.slug}
+              />
+            ))}
+          </Carroussel>
+        ) : null}
+        {sameKonceptEvents.length > 0 ? (
+          <Carroussel title={"Find mere " + event.koncept}>
+            {sameKonceptEvents.map((artist, index) => (
+              <KonceptCard
+                headline={artist.name}
+                koncept={artist.koncept}
+                imgsrc={
+                  artist.img
+                    ? "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/" +
+                      artist.img +
+                      ".webp"
+                    : "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/artists/" +
+                      artist.slug +
+                      ".webp"
+                }
+                btnlink={"/event/" + artist.slug}
+              />
+            ))}
+          </Carroussel>
+        ) : null}
+      </div>
     </main>
   );
 }

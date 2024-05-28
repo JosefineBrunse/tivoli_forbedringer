@@ -87,7 +87,7 @@
   }
   &:focus {
     border: none;
-    outline: 2px solid red;
+    outline: 2px solid var(--fredagsrock);
   }
 
   & h3 {

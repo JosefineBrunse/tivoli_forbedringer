@@ -82,7 +82,8 @@
   justify-content: center;
 
   @media (width<800px) {
-    display: block;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
   }
 }
 
@@ -116,4 +117,14 @@
       }
     }
   }
+}
+
+@media (width<800px) {
+  .details {
+    order: -1;
+  }
+}
+
+.more {
+  padding-inline: 1rem;
 }
