@@ -8,6 +8,7 @@ import DescriptionComponent from "@/components/Description";
 import LikeBtn from "@/components/LikeBtn";
 import ArtistCard from "@/components/ArtistCard";
 import KonceptCard from "@/components/KonceptCard";
+import SignUp from "@/components/signup";
 
 const myFont = localFont({
   src: "../../../../public/typografi/DomaineDisplayWeb-Black.woff2",
@@ -145,6 +146,7 @@ export default function page({ params }) {
           </Carroussel>
         ) : null}
       </div>
+      <SignUp />
     </main>
   );
 }

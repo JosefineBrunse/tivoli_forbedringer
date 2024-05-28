@@ -9,6 +9,7 @@ const myFont = localFont({
 
 import { konceptdata, programdata } from "@/app/data";
 import Carroussel from "@/components/Carroussel";
+import SignUp from "@/components/signup";
 const koncept = konceptdata;
 console.log(konceptdata);
 const program = programdata;
@@ -69,6 +70,7 @@ export default function page({ params }) {
         data={program}
         filter={dettekoncept.Filter}
       />
+      <SignUp />
     </main>
   );
 }

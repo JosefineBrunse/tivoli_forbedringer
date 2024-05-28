@@ -11,6 +11,7 @@ const myFont = localFont({
 });
 import { useState } from "react";
 import ProgramComponent from "./ProgramComponent";
+import SignUp from "./signup";
 
 export default function Quiz({ question, answers, data }) {
   const [filters, setFilters] = useState({
@@ -116,31 +117,6 @@ export default function Quiz({ question, answers, data }) {
         },
       ],
     },
-    {
-      question: "Hvornår vil du opleve noget?",
-      answers: [
-        {
-          question: "Juli",
-          filter: "month",
-          value: "Juli",
-        },
-        {
-          question: "August",
-          filter: "month",
-          value: "August",
-        },
-        {
-          question: "September",
-          filter: "month",
-          value: "September",
-        },
-        {
-          question: "Overrask mig",
-          filter: "month",
-          value: "all",
-        },
-      ],
-    },
   ]);
 
   function handleAnswer(filter, value) {
@@ -224,12 +200,14 @@ export default function Quiz({ question, answers, data }) {
             <p>Gem dit resultat</p>
             <div className="fill"></div>
           </button> */}
+
           <ProgramComponent
             quizfilters={filters}
             quiz={true}
             data={data}
             headline={"Vi anbefaler"}
           />
+          <SignUp />
         </>
       ) : (
         <section className="startquiz">

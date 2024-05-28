@@ -6,6 +6,7 @@ import ProgramComponent from "@/components/ProgramComponent";
 import TwoCol from "@/components/TwoCol";
 import AccordionContainer from "@/components/AccordionContainer";
 import localFont from "next/font/local";
+import SignUp from "@/components/signup";
 
 const myFont = localFont({
   src: "../../../public/typografi/DomaineDisplayWeb-Black.woff2",
@@ -44,6 +45,7 @@ export default function Page() {
           ]}
         ></AccordionContainer>
       </TwoCol>
+      <SignUp />
     </main>
   );
 }

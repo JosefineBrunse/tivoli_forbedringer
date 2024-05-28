@@ -22,6 +22,7 @@ import { konceptdata, programdata } from "@/app/data";
 import DynamicProductShelf from "@/components/DynamicProductShelf";
 import DynamicKonceptCard from "@/components/DynamicKonceptCard";
 import GetCard from "@/components/GetCard";
+import SignUp from "@/components/signup";
 
 const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
@@ -80,6 +81,7 @@ export default function Home() {
 
       <div className={styles.spacer}></div>
       <ProgramComponent headline={"Program"} data={data} />
+      <SignUp />
     </main>
   );
 }
