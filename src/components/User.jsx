@@ -11,6 +11,7 @@ const myFont = localFont({
 });
 
 import ProgramComponent from "./ProgramComponent";
+import GetCard from "./GetCard";
 export default function User({ data }) {
   const userState = useContext(UserContext);
   const userDispatch = useContext(SetUserContext);
@@ -97,6 +98,7 @@ export default function User({ data }) {
               headline={"Dit program"}
             />
           </section>
+          <GetCard></GetCard>
         </>
       ) : (
         <Login />
