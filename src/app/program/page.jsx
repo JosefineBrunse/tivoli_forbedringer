@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./programside.css";
 import { programdata } from "../data";
-import Loader from "@/components/Loader";
+import Loader from "@/app/loading";
 import ProgramComponent from "@/components/ProgramComponent";
 import localFont from "next/font/local";
 const myFont = localFont({

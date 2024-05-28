@@ -1,11 +1,58 @@
-.loadingscreen {
+.globalloader.active {
+  bottom: 0%;
+  transition: 1s ease;
+}
+
+.globalloader {
   width: 100dvw;
-  height: 100dvh;
+  height: 100%;
   position: absolute;
   z-index: 1000000;
   background-color: var(--secondary);
-  top: 0;
-
+  bottom: 100%;
+  position: absolute;
+  overflow: hidden;
+  position: fixed;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  transition: 1s ease;
+
+  & > * {
+    grid-area: 1/1;
+  }
+
+  & svg {
+    scale: 0.8;
+    & path {
+      fill: none;
+      stroke: var(--primary);
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: dash 3s linear forwards;
+    }
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.textlogo {
+  width: 100%;
+  & img {
+    scale: 0.3;
+    opacity: 0%;
+    animation: reveal 0.5s linear forwards;
+    animation-delay: 2.5s;
+  }
+}
+@keyframes reveal {
+  to {
+    opacity: 100%;
+  }
 }

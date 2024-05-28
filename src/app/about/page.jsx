@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./about.css";
 import { programdata } from "../data";
-import Loader from "@/components/Loader";
+import Loader from "@/app/loading";
 import ProgramComponent from "@/components/ProgramComponent";
 import TwoCol from "@/components/TwoCol";
 import AccordionContainer from "@/components/AccordionContainer";
