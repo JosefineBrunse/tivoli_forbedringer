@@ -2,9 +2,14 @@
 import Image from "next/image";
 import styles from "../styles/navbar.css";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext, SetUserContext } from "./MyContexts";
+
+import PrimaryBtn from "./PrimaryBtn";
+import SecondaryBtn from "./SecondaryBtn";
 
 export default function Navbar({ koncepter }) {
+  const userState = useContext(UserContext);
   const [active, setactive] = useState(false);
 
   function handleBurgerClick() {
@@ -131,18 +136,7 @@ export default function Navbar({ koncepter }) {
                 </Link>
               </li>
             ))}
-            <li
-              className="nav-item head"
-              style={{ "--index": koncepter.length + 3 }}
-            >
-              <Link
-                className="nav-link"
-                href="/user"
-                onClick={handleBurgerClick}
-              >
-                Profil
-              </Link>
-            </li>
+
             <li
               className="nav-item head"
               style={{ "--index": koncepter.length + 4 }}
@@ -158,13 +152,37 @@ export default function Navbar({ koncepter }) {
           </ul>
         </article>
 
-        <div
-          className={"hamburger " + (active ? "active" : "")}
-          onClick={handleBurgerClick}
-        >
-          <span className="bar1"></span>
-          <span className="bar2"></span>
-          <span className="bar3"></span>
+        <div className="nav-flexshelf">
+          {userState ? (
+            <Link href={"/user"}>
+              <svg
+                id="b"
+                data-name="Layer 2"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 168.7 165.13"
+              >
+                <g id="c" data-name="Layer 1">
+                  <g id="d" data-name="st6sxy">
+                    <g>
+                      <path d="M84.3,165.07c-25.47,0-50.94,0-76.41,0-7.79,0-7.57-.02-7.85-8.04-.67-19.39,6.36-35.11,22.01-46.69,8.67-6.42,18.61-9.72,29.37-9.81,21.97-.19,43.95-.25,65.92,0,27.86.32,51.13,23.8,51.25,51.61.07,15.31,1.96,12.81-12.87,12.9-23.8.13-47.61.04-71.42.04Z" />
+                      <path d="M84.23,87.92c-24.02-.05-44.02-20.02-43.96-43.91C40.34,19.97,60.02.24,84.18,0c23.96-.24,44.36,20.14,44.24,44.2-.11,23.88-20.22,43.77-44.19,43.72Z" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </Link>
+          ) : (
+            <SecondaryBtn text={"Login"} link={"/user"} />
+          )}
+
+          <div
+            className={"hamburger " + (active ? "active" : "")}
+            onClick={handleBurgerClick}
+          >
+            <span className="bar1"></span>
+            <span className="bar2"></span>
+            <span className="bar3"></span>
+          </div>
         </div>
       </nav>
       <div

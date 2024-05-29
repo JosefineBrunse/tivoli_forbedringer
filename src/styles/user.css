@@ -6,6 +6,10 @@
     position: relative;
     overflow: hidden;
 
+    & h1 {
+      margin-top: 1rem;
+    }
+
     & div:first-child {
       margin-left: 2rem;
     }
@@ -15,6 +19,12 @@
       top: 2rem;
       position: absolute;
       z-index: 1;
+
+      @media (width<800px) {
+        scale: 0.6;
+        right: -5rem;
+        top: 0rem;
+      }
 
       path {
         stroke: var(--fredagsrock);
