@@ -24,6 +24,9 @@ export async function generateMetadata({ params }) {
       "https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/koncept/img/" +
       selectedKoncept.slug +
       "/head.webp",
+    icons: {
+      icon: "/icon.svg",
+    },
   };
 }
 

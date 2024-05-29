@@ -15,6 +15,9 @@ export const metadata = {
   description:
     "Lad os hjælpe dig med at finde de bedste musikalske arrangementer til din sommer!",
   type: "website",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function Page() {

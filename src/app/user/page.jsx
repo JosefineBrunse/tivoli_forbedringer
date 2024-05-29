@@ -11,6 +11,9 @@ export const metadata = {
   description:
     "På denne side kan du se dit program og gemme det så du altid kan huske hvilke arrangementer du kan glæde dig til",
   type: "website",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function Page() {

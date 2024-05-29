@@ -34,6 +34,9 @@ export async function generateMetadata({ params }) {
       selectedBand.img
         ? selectedBand.img
         : selectedBand.slug,
+    icons: {
+      icon: "/icon.svg",
+    },
   };
 }
 

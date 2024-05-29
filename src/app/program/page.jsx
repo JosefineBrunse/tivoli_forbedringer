@@ -13,6 +13,9 @@ export const metadata = {
   description:
     "Vi har massere af musik på programmet hele sommeren! Gå på udforskning i programmet, og planlæg de næste solrige måneder",
   type: "website",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function Program() {

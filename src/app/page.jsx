@@ -33,6 +33,9 @@ export const metadata = {
   description:
     "Tivoli genlyd er stedet der samler alle tivolis musikkoncepter et sted, for at gøre det nemmere for dig at finde rundt i så du udelukkende kan koncentrere dig om hvad du har lyst til opleve, med hvem og hvornår!",
   type: "website",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function Home() {
