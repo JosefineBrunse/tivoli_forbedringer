@@ -64,9 +64,9 @@
     justify-content: space-between;
 
     & label {
-      display: flex;
+      display: flex !important;
       flex-direction: column;
-      flex-direction: column;
+
       width: 100%;
       gap: 1rem;
       margin-top: 0.4rem;

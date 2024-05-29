@@ -78,7 +78,7 @@ export default function Login() {
       .select();
 
     if (data.code === "23505") {
-      setUserStatus("Email already taken.");
+      setUserStatus("Denne email er allerede i brug");
     } else {
       toggleCreateLogin();
 
@@ -169,17 +169,16 @@ export default function Login() {
     const emailExists = allUsers.some((item) => item.email === email);
 
     if (emailExists) {
-      setUserStatus("Email already taken.");
+      setUserStatus("Denne email har allerede en bruger.");
     } else {
-      await PostLogin(e); // Wait for PostLogin to complete
+      await PostLogin(e);
 
-      // Now check if the email is still available after PostLogin
       const filteredItems = allUsers.filter((item) => item.email === email);
 
       if (filteredItems.length === 0) {
         console.log("createLogin success");
       } else {
-        setUserStatus("Email already taken.");
+        setUserStatus("Denne email har allerede en bruger");
       }
     }
   }
@@ -325,7 +324,7 @@ export default function Login() {
               <input
                 className="primary-button"
                 type="submit"
-                value="Create Account"
+                value="Opret konto"
               />
             </form>
             <div className="flip-login">

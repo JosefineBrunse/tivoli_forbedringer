@@ -283,8 +283,6 @@ export default function ProgramComponent({
       {posterView ? (
         <div className="monthview">
           {Object.keys(groupedByMonth).map((month, index) => {
-            // Check if MonthFilter is set and if the current month matches the filter
-            // Check if MonthFilter is set and if the current month matches the filter
             const filteredMonth = monthFilter
               ? monthFilter.toLowerCase().trim().substring(0, 3)
               : null;
