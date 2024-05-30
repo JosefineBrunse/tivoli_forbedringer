@@ -324,7 +324,7 @@ export default function ProgramComponent({
               return null;
             }
             const artists = groupedByMonth[month].map((artist, artistIndex) => {
-              if (index === 0 && artistIndex === 1 && !quizfilters) {
+              if (index === 0 && artistIndex === 1) {
                 return (
                   <>
                     <ArtistCard
@@ -339,7 +339,6 @@ export default function ProgramComponent({
                       img={artist.img}
                       id={artist.id}
                     />
-                    <Quizcard />
                   </>
                 );
               }
