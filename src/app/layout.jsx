@@ -16,6 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <UserProvider>
       <html lang="en">
+        <meta name="robots" content="noindex,nofollow" />
         <ReadUserSessionStorge>
           <div className="breaker"></div>
           <Navbar koncepter={konceptdata} />
