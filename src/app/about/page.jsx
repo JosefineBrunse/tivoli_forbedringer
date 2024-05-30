@@ -17,8 +17,7 @@ const myFont = localFont({
 
 export const metadata = {
   title: "Om Tivoli Genlyd",
-  description:
-    "Tivoli genlyd er stedet der samler alle tivolis musikkoncepter et sted, for at gøre det nemmere for dig at finde rundt i så du udelukkende kan koncentrere dig om hvad du har lyst til opleve, med hvem og hvornår!",
+  description: "Oplev festivalsstemning til Havefest, bliv inspireret af nye spirende talenter til MINT, dans til nostalgiske hits ved LørdagsHits og nyd fest, farver og fredagsfest til Fredagsrock. Uanset hvad du er til, byder Genlyd på god stemning og formidabel musik under åben himmel!",
   type: "website",
   icons: {
     icon: "/icon.svg",
@@ -30,22 +29,11 @@ export default function Page() {
     <main className={"aboutside"}>
       <div className="thing">
         <h1 className={`${myFont.className}`}>Om tivoligenlyd</h1>
-        <p>
-          Tivoli genlyd er stedet der samler alle tivolis musikkoncepter et
-          sted, for at gøre det nemmere for dig at finde rundt i så du
-          udelukkende kan koncentrere dig om hvad du har lyst til opleve, med
-          hvem og hvornår!
-        </p>
+        <p>Oplev festivalsstemning til Havefest, bliv inspireret af nye spirende talenter til MINT, dans til nostalgiske hits ved LørdagsHits og nyd fest, farver og fredagsfest til Fredagsrock. Uanset hvad du er til, byder Genlyd på god stemning og formidabel musik under åben himmel.</p>
       </div>
       <TwoCol>
         <div className="imgcontainer">
-          <video
-            controls={false}
-            muted
-            autoPlay
-            loop
-            src="stemning.webm"
-          ></video>
+          <video controls={false} muted autoPlay loop src="stemning.webm"></video>
         </div>
         <AccordionContainer
           accordions={[
