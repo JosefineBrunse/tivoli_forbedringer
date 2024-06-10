@@ -18,16 +18,11 @@ export default function AccordionContainer({ children, accordions }) {
     <section className="accodionShelf">
       <div>
         <div className="accshelfheadline">
-          <h2 className={`${myFont.className}`}>FAQ</h2>
-          <p>her kan du få svar på dine spørgsmål omkring Tivoli Genlyd</p>
+          <h2 className={`${myFont.className}`}>Ofte stillede spørgsmål</h2>
+          <p>Forbered dig bedst muligt til din koncertoplevelse i Tivoli, og få et overblik over ofte stillede spørgsmål nedenfor.</p>
         </div>
         {accordions.map((acc) => (
-          <Accordion
-            handleAccordions={handleAccordions}
-            globalactive={close}
-            headline={acc.headline}
-            text={acc.text}
-          />
+          <Accordion handleAccordions={handleAccordions} globalactive={close} headline={acc.headline} text={acc.text} />
         ))}
       </div>
     </section>

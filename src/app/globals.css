@@ -36,13 +36,15 @@ select {
 p {
   max-width: 55ch;
   text-wrap: balance;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 h1 {
   font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: clamp(2rem, 5vw, 6rem);
+  font-size: clamp(2rem, 5vw, 5rem);
   line-height: clamp(2rem, 5vw, 4.8rem);
   color: var(--secondary);
 }
@@ -63,7 +65,13 @@ h3 {
   color: var(--secondary);
 }
 
-h4,
+h4 {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  max-width: 60ch;
+  color: var(--secondary);
+}
 h5 {
   font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 500;
@@ -84,12 +92,7 @@ button {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 a {

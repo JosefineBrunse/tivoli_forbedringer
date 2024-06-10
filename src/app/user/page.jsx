@@ -8,7 +8,7 @@ import User from "@/components/User";
 
 export const metadata = {
   title: "Min Tivoli Genlyd",
-  description: "På denne side kan du se dit program og gemme det, så du altid kan huske, hvilke arrangementer du kan glæde dig til.",
+  description: "På denne side kan du se dit program. Like og gem de arrangementer, du vil have i dit program, så du altid kan huske, hvilke arrangementer du kan glæde dig til.",
   type: "website",
   icons: {
     icon: "/icon.svg",
