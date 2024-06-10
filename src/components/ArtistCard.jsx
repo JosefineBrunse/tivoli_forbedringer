@@ -5,8 +5,30 @@ import SecondaryBtn from "./SecondaryBtn";
 import LikeBtn from "./LikeBtn";
 import Link from "next/link";
 import PrimaryBtn from "./PrimaryBtn";
+import { gsap } from 'gsap';
+import { useRef, useEffect } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ArtistCard(props) {
+  const myelementref = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(myelementref.current, 
+      { y: 200, opacity: 0.5 }, 
+      { y: 0, opacity: 1, duration: 1, scrollTrigger: {
+        trigger: myelementref.current,
+        start: "top 100%",
+        end: "bottom 92%",
+        scrub: true,
+        toggleActions: "play none none reverse",
+        
+      } }
+    );
+  }, []);
+ 
+
   const months = [
     "Januar",
     "Februar",
@@ -31,7 +53,7 @@ export default function ArtistCard(props) {
   const formattedTime = `${hours}:${minutes}`;
 
   return (
-    <div className="artistcard">
+    <div className="artistcard" ref={myelementref}> 
       <Link href={`/event/` + props.slug}>
         <div className="imgcontainer">
           {props.img ? (

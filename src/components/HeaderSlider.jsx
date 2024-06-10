@@ -114,8 +114,10 @@ export default function HeaderSlider({ data }) {
         }}
       >
         {filteredData.length > 0 ? (
-          filteredData.map((artist) => (
+          filteredData.map((artist, index) => (
             <HeaderSliderElement
+index={index}
+            slideIndex={slideIndex}
               key={artist.slug} // Add a unique key
               headline={artist.name}
               time={artist.from}

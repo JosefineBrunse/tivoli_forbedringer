@@ -1,0 +1,5 @@
+.overflowreveal {
+  position: relative;
+  overflow: hidden;
+  height: fit-content;
+}

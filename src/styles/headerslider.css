@@ -20,10 +20,19 @@
     align-items: center;
     padding-block: 1rem;
     top: 2rem;
+
+    @media (width<800px) {
+      top: 0rem;
+    }
+
     & h1 {
       font-size: 1.5rem;
       font-weight: 400;
       color: var(--primary);
+      @media (width<800px) {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
     }
   }
   & svg {
@@ -33,6 +42,9 @@
   & .logo {
     height: 7rem;
     fill: var(--primary);
+    @media (width<800px) {
+      height: 4rem;
+    }
 
     & path {
       fill: var(--primary);
@@ -130,19 +142,29 @@
     justify-content: center;
     flex-direction: column;
     gap: 0.5rem;
-    width: fit-content;
+    width: 100%;
     margin-inline: auto;
     text-align: center;
     align-items: center;
     color: var(--primary);
+    position: relative;
 
     & h2 {
-      margin-bottom: 1rem;
       color: var(--primary);
       max-width: 60dvw;
       position: relative;
+      margin-bottom: 0;
+      position: relative;
 
-      overflow: hidden;
+      margin-bottom: 1rem;
+
+      & span {
+      }
+
+      @media (width<800px) {
+        max-width: none;
+      }
+
       & span {
         position: relative;
       }
@@ -150,10 +172,15 @@
 
     & .smallinfo {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 3rem;
       text-transform: uppercase;
       font-size: 0.8rem;
       width: 100%;
+
+      @media (width<800px) {
+        padding-inline: 1rem;
+      }
       & p {
         color: var(--primary);
       }

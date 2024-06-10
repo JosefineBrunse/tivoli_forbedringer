@@ -1,5 +1,6 @@
 .signup {
   min-height: 400px;
+  width: 100%;
   padding: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;

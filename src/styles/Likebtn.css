@@ -6,7 +6,7 @@
   & svg {
     stroke: var(--primary);
     stroke-width: 2px;
-
+    fill: none;
     transition: 0.2s ease-in;
 
     &.active {

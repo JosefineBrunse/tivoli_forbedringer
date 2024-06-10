@@ -6,7 +6,7 @@
   background-size: cover;
   min-height: 600px;
   align-items: center;
-  margin-bottom: 2rem;
+
   overflow: hidden;
   position: relative;
 
@@ -39,22 +39,26 @@
 
     & .smallinfo {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       text-transform: uppercase;
       font-size: 0.8rem;
       width: 100%;
       gap: 1rem;
       max-width: 70dvw;
       & p {
-        color: var(--primary);
+        color: var(--primary) !important;
       }
       & div {
         display: flex;
         gap: 0.5rem;
+        & p {
+          color: var(--primary) !important;
+        }
       }
     }
   }
 }
+
 .headerimg {
   grid-column: 1;
   grid-row: 1;
@@ -96,6 +100,7 @@
 
 .headline {
   margin-left: 2rem;
+  margin: 1rem;
 }
 
 .h1 {
@@ -130,4 +135,10 @@
 
 .more {
   padding-inline: 1rem;
+}
+
+.details {
+  & h3 {
+    margin-bottom: 1rem;
+  }
 }

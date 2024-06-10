@@ -24,6 +24,7 @@ import DynamicKonceptCard from "@/components/DynamicKonceptCard";
 import GetCard from "@/components/GetCard";
 import SignUp from "@/components/signup";
 import Quizcard from "@/components/Quizcard";
+import H2Reaveal from "@/components/H2Reveal";
 
 const myFont = localFont({
   src: "../../public/typografi/DomaineDisplayWeb-Black.woff2",
@@ -62,6 +63,8 @@ export default function Home() {
         </div>
         {/* <AccordionContainer /> */}
         <List>
+
+
           <h2 className={`${myFont.className}`}>Musik der giver Genlyd!</h2>
           <p>
             Oplev festivalsstemning til Havefest, bliv inspireret af nye
