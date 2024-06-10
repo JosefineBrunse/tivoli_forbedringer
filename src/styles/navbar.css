@@ -1,6 +1,5 @@
 .navbar {
-  background-image: url("../../public/pattern-sprite.png"),
-    linear-gradient(#baa46f, #ad9260);
+  background-image: url("../../public/pattern-sprite.png"), linear-gradient(#baa46f, #ad9260);
   background-position: 0 100%;
 
   height: 70px;

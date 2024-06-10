@@ -9,7 +9,7 @@ export default function ProductShelf({ children, headline, text }) {
   return (
     <section className="productshelf">
       <h2 className={`${myFont.className}`}>{headline}</h2>
-      <h4>{text}</h4>
+      <p>{text}</p>
       <div className="outer">
         <div className="grid">{children}</div>
       </div>

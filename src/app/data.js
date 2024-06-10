@@ -1,5 +1,3 @@
-
-
 // loginstuff
 let headersList = {
   Accept: "*/*",
@@ -13,17 +11,17 @@ let response = await fetch("https://dmyzwmcuzrezoxseqnfh.supabase.co/rest/v1/tiv
   headers: headersList,
 });
 
-
 const now = new Date();
-  const filteredData = (await response.json()).filter(item => new Date(item.from) >= now);
-  
-  // Sort the filtered data by the from date
-  filteredData.sort((a, b) => new Date(a.from) - new Date(b.from));
+const filteredData = (await response.json()).filter((item) => new Date(item.from) >= now);
+
+// Sort the filtered data by the from date
+filteredData.sort((a, b) => new Date(a.from) - new Date(b.from));
 
 let responseKoncepter = await fetch("https://dmyzwmcuzrezoxseqnfh.supabase.co/rest/v1/Koncepter", {
   method: "GET",
   headers: headersList,
 });
+const sortedKonceptData = (await responseKoncepter.json()).sort((a, b) => a.Sorting - b.Sorting);
 
-export const programdata = filteredData
-export const konceptdata = await responseKoncepter.json();
+export const programdata = filteredData;
+export const konceptdata = await sortedKonceptData;

@@ -72,7 +72,7 @@ export default function Home() {
         </List>
       </TwoCol>
 
-      <ProductShelf headline={"Sommerminder på repeat – Uanset din jam"} text={"Dyk ned i musikkoncepterne og opdag en verden af musik, der inspirerer, skaber magiske øjeblikke og fællesskab."}>
+      <ProductShelf headline={"Sommerminder på repeat. Uanset din jam"} text={"Dyk ned i musikkoncepterne og opdag en verden af musik, der inspirerer, skaber magiske øjeblikke og fællesskab."}>
         {konceptdata ? konceptdata.map((koncept) => <KonceptCard headline={koncept.name} text={koncept.shortDescription} imgsrc={`https://dmyzwmcuzrezoxseqnfh.supabase.co/storage/v1/object/public/koncept/img/${koncept.slug}/head.webp`} btnlink={"koncept/" + koncept.slug} />) : null}
       </ProductShelf>
 
