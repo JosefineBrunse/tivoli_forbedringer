@@ -6,6 +6,7 @@
 
     & p {
       margin-top: 1rem;
+      max-width: 70ch;
     }
   }
 
