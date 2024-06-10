@@ -19,8 +19,9 @@ export default function ArtistCard(props) {
       { y: 200, opacity: 0.5 }, 
       { y: 0, opacity: 1, duration: 1, scrollTrigger: {
         trigger: myelementref.current,
-        start: "top 100%",
-        end: "bottom 92%",
+        start: "top 98%",
+        end: "bottom 100%",
+
         scrub: true,
         toggleActions: "play none none reverse",
         
