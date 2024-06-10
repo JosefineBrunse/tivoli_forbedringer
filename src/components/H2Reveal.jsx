@@ -26,8 +26,7 @@ export default function H2Reveal({ text }) {
                   trigger: myheadlineref.current,
                   start: "top 80%",
                   end: "bottom 60%",
-                  toggleActions: "play none none reverse",
-                  markers: true
+                  toggleActions: "play none none reverse"
               } 
             }
         );
